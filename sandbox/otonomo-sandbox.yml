@@ -1,0 +1,26 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://docs.otonomo.io/docs/vehicle-simulator (Demo Vehicles and Simulator)
+  and https://docs.otonomo.io/llms.txt. Otonomo documents demo vehicles and a
+  simulator for testing the Fleet API; the concrete demo VIN values are rendered
+  client-side in the docs and were not machine-readable at capture time, so none
+  are reproduced here (no test values are invented).
+description: >-
+  Otonomo provides a testing surface of demo vehicles plus a simulator so
+  developers can exercise the Fleet API (vehicle status, events) without live
+  connected vehicles.
+sandbox:
+  demo_vehicles:
+    available: true
+    docs: https://docs.otonomo.io/docs/vehicle-simulator
+    note: Demo VINs are provisioned for the account; obtain them from the developer platform / docs.
+  simulator:
+    available: true
+    purpose: Simulate vehicle data and events to validate integrations and custom event rules.
+    docs: https://docs.otonomo.io/docs/vehicle-simulator
+  test_vs_live:
+    note: >-
+      Access is scoped by Service ID and Workspace; demo/simulator data is
+      exercised through the same endpoints using demo VINs rather than a separate
+      test key prefix.

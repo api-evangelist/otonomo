@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: generated
+source: >-
+  Generated from openapi/otonomo-fleet-openapi.yml (operationIds verified against
+  the live Otonomo Fleet API reference) plus conventions/otonomo-conventions.yml
+  and errors/otonomo-error-codes.yml. No provider-published Agent Skills / AGENTS.md
+  were found.
+skills:
+- file: otonomo-onboard-and-get-status.md
+  name: Onboard fleet vehicles and read their status
+  api: openapi/otonomo-fleet-openapi.yml
+  operations: [workspace-access-token-eu, vehicle-management-upload-new-vin, vehicle-management-request-vins-consent-1, vehicle-management-get-all-vins, vehicle-status-for-fleets]
+- file: otonomo-generate-fleet-report.md
+  name: Generate and download an asynchronous fleet trips report
+  api: openapi/otonomo-fleet-openapi.yml
+  operations: [workspace-access-token-eu, personal-trips-data-historical, get-report-status-eu]
+- file: otonomo-check-vehicle-connectivity.md
+  name: Check a vehicle's connectivity before requesting data
+  api: openapi/otonomo-fleet-openapi.yml
+  operations: [workspace-access-token-eu, connectivity-check, vehicle-status-time-per-attribute]

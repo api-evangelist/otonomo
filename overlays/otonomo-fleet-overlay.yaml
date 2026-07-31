@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Otonomo Fleet API
+  version: 1.0.0
+extends: openapi/otonomo-fleet-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-20'
+    x-api-evangelist-source: https://docs.otonomo.io/reference
+    x-regions: [US, EU]
+    x-async-report-pattern: >-
+      Bulk/historical endpoints return a Request_id; poll get-report-status-eu
+      until Completed, then download the CSV. Reports expire after 30 days.
+- target: $.components.securitySchemes.oauth2
+  update:
+    x-token-ttl-seconds: 86400
+    x-token-usage: 'Authorization: Bearer <access_token>'
+    x-service-id-required: true
+- target: $.paths['/v1/personal/reports/points']['post']
+  update:
+    x-premium: true
+    x-premium-note: Premium feature — contact support@otonomo.io to unlock.
+- target: $.paths['/v1/personal/reports/trips']['post']
+  update:
+    x-premium: true
+    x-premium-note: Premium feature — contact support@otonomo.io to unlock.

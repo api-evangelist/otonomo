@@ -1,0 +1,46 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  Derived from the response definitions embedded in the Otonomo Fleet API
+  reference (per-endpoint OpenAPI 3.1 on docs.otonomo.io). Otonomo documents a
+  dedicated "Error Codes" reference page
+  (https://docs.otonomo.io/docs/error-codes) linked from every endpoint; its
+  full body is rendered client-side and was not machine-readable at capture
+  time, so titles/remediation below are derived from the observed responses and
+  standard HTTP semantics.
+format: json
+docs: https://docs.otonomo.io/docs/error-codes
+envelope:
+  description: >-
+    Errors are returned as a flat JSON object. Permission/validation errors use
+    a `detail` string field (observed on 4xx responses).
+  fields:
+  - detail
+  example: '{"detail": "You do not have permission to perform this action."}'
+problems:
+- status: 400
+  title: Bad Request
+  meaning: >-
+    Malformed request — missing/invalid body parameters (e.g. token request
+    missing client_id/client_secret/grant_type/service, or a malformed VIN /
+    report payload).
+  source_operation: openapi/otonomo-fleet-openapi.yml#/v1/oauth/token/
+- status: 401
+  title: Unauthorized
+  meaning: Missing, invalid, or expired Bearer access token.
+- status: 403
+  title: Forbidden
+  meaning: >-
+    Authenticated but not permitted for the requested resource/action
+    (e.g. the token's Workspace/service scope does not cover the VIN or region).
+  envelope_field: detail
+  source_operation: openapi/otonomo-fleet-openapi.yml#/v1/vehicles/{vin}/status
+- status: 404
+  title: Not Found
+  meaning: Unknown resource — VIN not found in the fleet, or unknown report/request id.
+- status: 429
+  title: Too Many Requests
+  meaning: API rate limit exceeded. See https://docs.otonomo.io/docs/api-rate-limits
+- status: 500
+  title: Internal Server Error
+  meaning: Unexpected server-side error.

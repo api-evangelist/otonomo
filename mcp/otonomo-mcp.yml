@@ -1,0 +1,63 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/otonomo-fleet-openapi.yml — candidate tool list derived one-per-operation from the reconstructed
+  Otonomo Fleet API OpenAPI. No official Otonomo MCP server was found.
+server:
+  name: otonomo-fleet
+  transport: stdio
+tools:
+- name: attribute_explorer_1
+  description: Attribute Explorer
+  source_operation: openapi/otonomo-fleet-openapi.yml#attribute-explorer-1
+- name: bulk_vehicles_status_for_fleets_eu
+  description: Vehicle Status - Bulk Report
+  source_operation: openapi/otonomo-fleet-openapi.yml#bulk-vehicles-status-for-fleets-eu
+- name: connectivity_check
+  description: Connectivity Check
+  source_operation: openapi/otonomo-fleet-openapi.yml#connectivity-check
+- name: driver_access_token
+  description: Driver Access Token
+  source_operation: openapi/otonomo-fleet-openapi.yml#driver-access-token
+- name: fleet_points_historical_data
+  description: Fleet Points Data
+  source_operation: openapi/otonomo-fleet-openapi.yml#fleet-points-historical-data
+- name: fleet_trips_points
+  description: Fleet Trips Points
+  source_operation: openapi/otonomo-fleet-openapi.yml#fleet-trips-points
+- name: general_access_token
+  description: General Access Token
+  source_operation: openapi/otonomo-fleet-openapi.yml#general-access-token
+- name: get_report_status_eu
+  description: Get Report Status
+  source_operation: openapi/otonomo-fleet-openapi.yml#get-report-status-eu
+- name: personal_trips_data_historical
+  description: Fleet Trips Data
+  source_operation: openapi/otonomo-fleet-openapi.yml#personal-trips-data-historical
+- name: workspace_access_token_eu
+  description: Fleet (Workspace) Access Token - EU
+  source_operation: openapi/otonomo-fleet-openapi.yml#workspace-access-token-eu
+- name: vehicle_management_get_all_vins
+  description: Vehicle Management - Get All VINs
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-management-get-all-vins
+- name: vehicle_management_upload_new_vin
+  description: Vehicle Management - Upload new VINs
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-management-upload-new-vin
+- name: vehicle_management_remove_vins
+  description: Vehicle Management - Delete VINs
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-management-remove-vins
+- name: vehicle_management_request_vins_consent_1
+  description: Vehicle Management - Request VIN Enablement
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-management-request-vins-consent-1
+- name: vehicle_management_revoke_vins
+  description: Vehicle Management - Disable VINs
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-management-revoke-vins
+- name: vehicle_ownership_verification
+  description: Vehicle ownership verification
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-ownership-verification
+- name: vehicle_status_for_fleets
+  description: Vehicle Status v1
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-status-for-fleets
+- name: vehicle_status_time_per_attribute
+  description: Vehicle Status v2 (Time Per Attribute)
+  source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-status-time-per-attribute

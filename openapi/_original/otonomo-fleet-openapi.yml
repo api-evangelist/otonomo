@@ -1,0 +1,2725 @@
+openapi: 3.1.0
+info:
+  title: Otonomo Fleet API
+  version: '1.1'
+  description: Connected-vehicle data API for fleets. Reconstructed by API Evangelist from the per-operation OpenAPI 3.1 definitions
+    embedded in the live Otonomo API reference at docs.otonomo.io (ReadMe). US region host api.otonomo.io; EU region host
+    api.eu.otonomo.io.
+  x-source: https://docs.otonomo.io/reference
+  x-assembled-by: API Evangelist enrichment pipeline
+servers:
+- url: https://api.otonomo.io
+  description: US region
+- url: https://api.eu.otonomo.io
+  description: EU region
+security:
+- oauth2: []
+paths:
+  /vehicle_details_attributes:
+    get:
+      summary: Attribute Explorer
+      description: "This call provides the ability of attribute exploration within the Otonomo platform. \nThe response includes\
+        \ the relevant attributes according to the passed query parameters."
+      operationId: attribute-explorer-1
+      parameters:
+      - name: authorization
+        in: header
+        description: '[General Access Token](https://docs.otonomo.io/reference/general-access-token) preceded by the token
+          type string for "OAuth2", "Bearer".'
+        required: true
+        schema:
+          type: string
+      - name: model
+        in: query
+        description: The result can be filtered by the 'model' query param, to include only the specified model
+        schema:
+          type: string
+      - name: make
+        in: query
+        description: The result can be filtered by the 'make' query param, to include only the specified make
+        schema:
+          type: string
+      - name: year
+        in: query
+        description: The result can be filtered by the 'year' query param, to include only the specified year
+        schema:
+          type: string
+      - name: engine_type
+        in: query
+        description: The result can be filtered by the 'engine_type' query param, to include only the specified engine_type
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: A function of pagination is implemented, the specified page number (as a query param) will be returned
+          with its content.
+        schema:
+          type: integer
+          format: int32
+      - name: page_size
+        in: query
+        description: A function of page size is implemented, the specified size is related to the number of Json objects that
+          are being returned (min value=1 | max value=1197 | is not specified=100).
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                filtered by make & year:
+                  value: "{\n    \"count\": 73,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n      \
+                    \  {\n            \"id\": 1195,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"event__brake__harsh\",\n                \"description\": \"\
+                    indicates whether a harsh brake event was triggered 1 - event-triggered 0 - event stopped\",\n       \
+                    \         \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n   \
+                    \     {\n            \"id\": 1196,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"deprecated_vehicle__provider__oem\",\n                \"description\"\
+                    : \"The name of the Original Equipment Manufacturer\",\n                \"type\": \"String\",\n      \
+                    \          \"unit_name\": \"string\"\n            }\n        },\n        {\n            \"id\": 1197,\n\
+                    \            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__identification__vin\",\n                \"description\": \"The vehicle's identification number\"\
+                    ,\n                \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n       \
+                    \ },\n        {\n            \"id\": 1198,\n            \"model\": \"Camry-FA20\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"mobility__acceleration__lateral\",\n     \
+                    \           \"description\": \"The right (positive value) -and-left (negative value) acceleration of a\
+                    \ vehicle in g.\",\n                \"type\": \"Float\",\n                \"unit_name\": \"g\"\n     \
+                    \       }\n        },\n        {\n            \"id\": 1199,\n            \"model\": \"Camry-FA20\",\n\
+                    \            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"event__acceleration__harsh\",\n\
+                    \                \"description\": \"indicates whether a harsh acceleration event was triggered 1 - event-triggered\
+                    \ 0 - event stopped\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n\
+                    \            }\n        },\n        {\n            \"id\": 1200,\n            \"model\": \"Camry-FA20\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__otonomo_id\"\
+                    ,\n                \"description\": \"A unique vehicle's identification number created by Otonomo\",\n\
+                    \                \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1201,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\",\n                \"\
+                    description\": \"The accumulated distance traveled by a vehicle in km\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"km\"\n            }\n        },\n        {\n            \"\
+                    id\": 1202,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"mobility__acceleration__value\",\n                \"description\": \"The\
+                    \ forward (positive value) -and-backward (negative value) acceleration of a vehicle in g.\",\n       \
+                    \         \"type\": \"Float\",\n                \"unit_name\": \"g\"\n            }\n        },\n    \
+                    \    {\n            \"id\": 1203,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"event__cornering__harsh\",\n                \"description\"\
+                    : \"indicates whether a harsh cornering event was triggered 1 - event-triggered 0 - event stopped\",\n\
+                    \                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1204,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"location__longitude__value\",\n                \"\
+                    description\": \"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\",\n  \
+                    \              \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1205,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"metadata__provider__name\",\n                \"\
+                    description\": \"The name of the provider\",\n                \"type\": \"String\",\n                \"\
+                    unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 1206,\n            \"model\"\
+                    : \"Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"\
+                    engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"metadata__time__epoch\"\
+                    ,\n                \"description\": \"The exact time of a given point (UTC) in Epoch format.\",\n    \
+                    \            \"type\": \"Long\",\n                \"unit_name\": \"epoch\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1207,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"mobility__speed__value\",\n                \"description\"\
+                    : \"The vehicle's current speed in Km/h\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"km/h\"\n            }\n        },\n        {\n            \"id\": 1208,\n            \"model\": \"\
+                    Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\"\
+                    : \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"location__latitude__value\"\
+                    ,\n                \"description\": \"The GPS latitudinal location of a given vehicle in decimal degrees\
+                    \ (WGS 84).\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n       \
+                    \     }\n        },\n        {\n            \"id\": 1296,\n            \"model\": \"Camry-FA20\",\n  \
+                    \          \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__window__2_2_status\",\n\
+                    \                \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers\
+                    \ to the i-th row and j-th column starting from (1,1) for top left.     \\n0 - Intermediate position\\\
+                    n1 - Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 1297,\n            \"model\": \"Camry-FA20\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__roof__sunroof_status\",\n       \
+                    \         \"description\": \"The status of a vehicle's sunroof.\\n0 - Closed\\n1 - Open\\n2 - Sunroof\
+                    \ is tilted-open\\n3 - Sunroof is running\\n4 - Sunroof in anti-wobble position\\n5 - Sunroof in an intermediate\
+                    \ sliding position\\n6 - Sunroof in an intermediate tilted position\\n7 - Invalid\",\n               \
+                    \ \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n\
+                    \            \"id\": 1298,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n\
+                    \            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__tire__2_2_pressure\",\n                \"description\"\
+                    : \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation\
+                    \ refers to the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"\
+                    id\": 1299,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"vehicle__window__2_1_status\",\n                \"description\": \"The\
+                    \ status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column starting\
+                    \ from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\\
+                    n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n\
+                    \                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 1300,\n\
+                    \            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__tire__2_1_pressure\",\n                \"description\": \"The exact amount of tire pressure\
+                    \ the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) top left.\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"psi\"\n            }\n        },\n        {\n            \"id\": 1301,\n            \"model\": \"\
+                    Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\"\
+                    : \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__1_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1302,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__window__1_2_status\",\n               \
+                    \ \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row\
+                    \ and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\\
+                    n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"\
+                    type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n    \
+                    \        \"id\": 1303,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n  \
+                    \          \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__fuel__level\",\n                \"description\": \"\
+                    A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\",\n                \"type\":\
+                    \ \"Float\",\n                \"unit_name\": \"percentage\"\n            }\n        },\n        {\n  \
+                    \          \"id\": 1304,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n\
+                    \            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__tire__1_2_pressure\",\n                \"description\"\
+                    : \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation\
+                    \ refers to the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"\
+                    id\": 1305,\n            \"model\": \"Camry-FA20\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"vehicle__window__1_1_status\",\n                \"description\": \"The\
+                    \ status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column starting\
+                    \ from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\\
+                    n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n\
+                    \                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 1025,\n\
+                    \            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"metadata__time__epoch\",\n                \"description\": \"The exact time of a given point (UTC)\
+                    \ in Epoch format.\",\n                \"type\": \"Long\",\n                \"unit_name\": \"epoch\"\n\
+                    \            }\n        },\n        {\n            \"id\": 1026,\n            \"model\": \"Camry-LB10\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"deprecated_vehicle__provider__oem\"\
+                    ,\n                \"description\": \"The name of the Original Equipment Manufacturer\",\n           \
+                    \     \"type\": \"String\",\n                \"unit_name\": \"string\"\n            }\n        },\n  \
+                    \      {\n            \"id\": 1027,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__fuel__level\",\n                \"description\"\
+                    : \"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\",\n                \"type\"\
+                    : \"Float\",\n                \"unit_name\": \"percentage\"\n            }\n        },\n        {\n  \
+                    \          \"id\": 1028,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n\
+                    \            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__identification__vin\",\n                \"description\"\
+                    : \"The vehicle's identification number\",\n                \"type\": \"String\",\n                \"\
+                    unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 1029,\n            \"model\"\
+                    : \"Camry-LB10\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"\
+                    engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__otonomo_id\"\
+                    ,\n                \"description\": \"A unique vehicle's identification number created by Otonomo\",\n\
+                    \                \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1030,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"location__latitude__value\",\n                \"\
+                    description\": \"The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).\",\n   \
+                    \             \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1031,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"location__longitude__value\",\n                \"\
+                    description\": \"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\",\n  \
+                    \              \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1032,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\",\n                \"\
+                    description\": \"The accumulated distance traveled by a vehicle in km\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"km\"\n            }\n        },\n        {\n            \"\
+                    id\": 1033,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"metadata__provider__name\",\n                \"description\": \"The name\
+                    \ of the provider\",\n                \"type\": \"String\",\n                \"unit_name\": \"\"\n   \
+                    \         }\n        },\n        {\n            \"id\": 1437,\n            \"model\": \"Camry-LB10\",\n\
+                    \            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__roof__sunroof_status\"\
+                    ,\n                \"description\": \"The status of a vehicle's sunroof.\\n0 - Closed\\n1 - Open\\n2 -\
+                    \ Sunroof is tilted-open\\n3 - Sunroof is running\\n4 - Sunroof in anti-wobble position\\n5 - Sunroof\
+                    \ in an intermediate sliding position\\n6 - Sunroof in an intermediate tilted position\\n7 - Invalid\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 1438,\n            \"model\": \"Camry-LB10\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__1_2_pressure\",\n         \
+                    \       \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1439,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__window__2_2_status\",\n               \
+                    \ \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row\
+                    \ and j-th column starting from (1,1) for top left.     \\n0 - Intermediate position\\n1 - Opened\\n2\
+                    \ - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n    \
+                    \            \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1440,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__window__2_1_status\",\n               \
+                    \ \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row\
+                    \ and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\\
+                    n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"\
+                    type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n    \
+                    \        \"id\": 1441,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n  \
+                    \          \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__tire__2_2_pressure\",\n                \"description\"\
+                    : \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation\
+                    \ refers to the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"\
+                    id\": 1442,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"mobility__speed__value\",\n                \"description\": \"The vehicle's\
+                    \ current speed in Km/h\",\n                \"type\": \"Float\",\n                \"unit_name\": \"km/h\"\
+                    \n            }\n        },\n        {\n            \"id\": 1443,\n            \"model\": \"Camry-LB10\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__window__1_2_status\"\
+                    ,\n                \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers\
+                    \ to the i-th row and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 -\
+                    \ Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 1444,\n            \"model\": \"Camry-LB10\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__window__1_1_status\",\n         \
+                    \       \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the\
+                    \ i-th row and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\\
+                    n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n   \
+                    \             \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1445,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_1_pressure\",\n               \
+                    \ \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\\
+                    nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n   \
+                    \     {\n            \"id\": 1446,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__tire__1_1_pressure\",\n                \"description\"\
+                    : \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation\
+                    \ refers to the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"\
+                    id\": 1560,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"event__brake__harsh\",\n                \"description\": \"indicates whether\
+                    \ a harsh brake event was triggered 1 - event-triggered 0 - event stopped\",\n                \"type\"\
+                    : \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n          \
+                    \  \"id\": 1561,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"Toyota\",\n        \
+                    \    \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n \
+                    \               \"attribute_name\": \"mobility__acceleration__value\",\n                \"description\"\
+                    : \"The forward (positive value) -and-backward (negative value) acceleration of a vehicle in g.\",\n \
+                    \               \"type\": \"Float\",\n                \"unit_name\": \"g\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1562,\n            \"model\": \"Camry-LB10\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"mobility__acceleration__lateral\",\n           \
+                    \     \"description\": \"The right (positive value) -and-left (negative value) acceleration of a vehicle\
+                    \ in g.\",\n                \"type\": \"Float\",\n                \"unit_name\": \"g\"\n            }\n\
+                    \        },\n        {\n            \"id\": 1568,\n            \"model\": \"Camry-LB10\",\n          \
+                    \  \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n\
+                    \            \"attribute\": {\n                \"attribute_name\": \"event__cornering__harsh\",\n    \
+                    \            \"description\": \"indicates whether a harsh cornering event was triggered 1 - event-triggered\
+                    \ 0 - event stopped\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n\
+                    \            }\n        },\n        {\n            \"id\": 1575,\n            \"model\": \"Camry-LB10\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"event__acceleration__harsh\"\
+                    ,\n                \"description\": \"indicates whether a harsh acceleration event was triggered 1 - event-triggered\
+                    \ 0 - event stopped\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n\
+                    \            }\n        },\n        {\n            \"id\": 1091,\n            \"model\": \"Camry-XSE\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__1_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1092,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__tire__1_2_pressure\",\n               \
+                    \ \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\\
+                    nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n   \
+                    \     {\n            \"id\": 1093,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"mobility__speed__value\",\n                \"description\"\
+                    : \"The vehicle's current speed in Km/h\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"km/h\"\n            }\n        },\n        {\n            \"id\": 1094,\n            \"model\": \"\
+                    Camry-XSE\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\"\
+                    : \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__window__2_1_status\"\
+                    ,\n                \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers\
+                    \ to the i-th row and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 -\
+                    \ Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 1095,\n            \"model\": \"Camry-XSE\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__fuel__level\",\n                \"\
+                    description\": \"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"percentage\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1096,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"metadata__provider__name\",\n                \"\
+                    description\": \"The name of the provider\",\n                \"type\": \"String\",\n                \"\
+                    unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 1097,\n            \"model\"\
+                    : \"Camry-XSE\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\"\
+                    : \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__window__1_1_status\"\
+                    ,\n                \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers\
+                    \ to the i-th row and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 -\
+                    \ Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 1098,\n            \"model\": \"Camry-XSE\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__window__1_2_status\",\n         \
+                    \       \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the\
+                    \ i-th row and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\\
+                    n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n   \
+                    \             \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1099,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"location__longitude__value\",\n                \"\
+                    description\": \"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\",\n  \
+                    \              \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1100,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__window__2_2_status\",\n               \
+                    \ \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row\
+                    \ and j-th column starting from (1,1) for top left.     \\n0 - Intermediate position\\n1 - Opened\\n2\
+                    \ - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n    \
+                    \            \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1101,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\",\n                \"\
+                    description\": \"The accumulated distance traveled by a vehicle in km\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"km\"\n            }\n        },\n        {\n            \"\
+                    id\": 1102,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"location__latitude__value\",\n                \"description\": \"The GPS\
+                    \ latitudinal location of a given vehicle in decimal degrees (WGS 84).\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"deg\"\n            }\n        },\n        {\n            \"\
+                    id\": 1103,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"deprecated_vehicle__provider__oem\",\n                \"description\":\
+                    \ \"The name of the Original Equipment Manufacturer\",\n                \"type\": \"String\",\n      \
+                    \          \"unit_name\": \"string\"\n            }\n        },\n        {\n            \"id\": 1104,\n\
+                    \            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__identification__otonomo_id\",\n                \"description\": \"A unique vehicle's identification\
+                    \ number created by Otonomo\",\n                \"type\": \"String\",\n                \"unit_name\":\
+                    \ \"\"\n            }\n        },\n        {\n            \"id\": 1105,\n            \"model\": \"Camry-XSE\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1106,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_2_pressure\",\n               \
+                    \ \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\\
+                    nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n   \
+                    \     {\n            \"id\": 1107,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__roof__sunroof_status\",\n                \"description\"\
+                    : \"The status of a vehicle's sunroof.\\n0 - Closed\\n1 - Open\\n2 - Sunroof is tilted-open\\n3 - Sunroof\
+                    \ is running\\n4 - Sunroof in anti-wobble position\\n5 - Sunroof in an intermediate sliding position\\\
+                    n6 - Sunroof in an intermediate tilted position\\n7 - Invalid\",\n                \"type\": \"Integer\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 1108,\n\
+                    \            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\",\n            \"year\": \"2018\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__identification__vin\",\n                \"description\": \"The vehicle's identification number\"\
+                    ,\n                \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n       \
+                    \ },\n        {\n            \"id\": 1109,\n            \"model\": \"Camry-XSE\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"metadata__time__epoch\",\n               \
+                    \ \"description\": \"The exact time of a given point (UTC) in Epoch format.\",\n                \"type\"\
+                    : \"Long\",\n                \"unit_name\": \"epoch\"\n            }\n        },\n        {\n        \
+                    \    \"id\": 1290,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\",\n       \
+                    \     \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n\
+                    \                \"attribute_name\": \"mobility__acceleration__lateral\",\n                \"description\"\
+                    : \"The right (positive value) -and-left (negative value) acceleration of a vehicle in g.\",\n       \
+                    \         \"type\": \"Float\",\n                \"unit_name\": \"g\"\n            }\n        },\n    \
+                    \    {\n            \"id\": 1291,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"event__brake__harsh\",\n                \"description\": \"\
+                    indicates whether a harsh brake event was triggered 1 - event-triggered 0 - event stopped\",\n       \
+                    \         \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n   \
+                    \     {\n            \"id\": 1292,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"mobility__acceleration__value\",\n                \"description\"\
+                    : \"The forward (positive value) -and-backward (negative value) acceleration of a vehicle in g.\",\n \
+                    \               \"type\": \"Float\",\n                \"unit_name\": \"g\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1293,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"event__cornering__harsh\",\n                \"description\"\
+                    : \"indicates whether a harsh cornering event was triggered 1 - event-triggered 0 - event stopped\",\n\
+                    \                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 1294,\n            \"model\": \"Camry-XSE\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"event__acceleration__harsh\",\n                \"\
+                    description\": \"indicates whether a harsh acceleration event was triggered 1 - event-triggered 0 - event\
+                    \ stopped\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n          \
+                    \  }\n        },\n        {\n            \"id\": 1582,\n            \"model\": \"Camry-XSE\",\n      \
+                    \      \"make\": \"Toyota\",\n            \"year\": \"2018\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__indication_light__maintenance\"\
+                    ,\n                \"description\": \"Indicates if the maintenance light is on or off. on-1;0ff-0\",\n\
+                    \                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        }\n\
+                    \    ]\n}"
+                filtered by page number:
+                  value: "{\n    \"count\": 975,\n    \"next\": \"https://provider-be.us.otono.me/api/vehicle_details_attributes?page=4\"\
+                    ,\n    \"previous\": \"https://provider-be.us.otono.me/api/vehicle_details_attributes?page=2\",\n    \"\
+                    results\": [\n        {\n            \"id\": 220,\n            \"model\": \"Tundra-SR5 grade\",\n    \
+                    \        \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"location__latitude__value\",\n\
+                    \                \"description\": \"The GPS latitudinal location of a given vehicle in decimal degrees\
+                    \ (WGS 84).\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n       \
+                    \     }\n        },\n        {\n            \"id\": 221,\n            \"model\": \"Tundra-SR5 grade\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"deprecated_vehicle__provider__oem\"\
+                    ,\n                \"description\": \"The name of the Original Equipment Manufacturer\",\n           \
+                    \     \"type\": \"String\",\n                \"unit_name\": \"string\"\n            }\n        },\n  \
+                    \      {\n            \"id\": 222,\n            \"model\": \"Tundra-SR5 grade\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"metadata__provider__name\",\n            \
+                    \    \"description\": \"The name of the provider\",\n                \"type\": \"String\",\n         \
+                    \       \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 223,\n        \
+                    \    \"model\": \"Tundra-SR5 grade\",\n            \"make\": \"Toyota\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__window__1_1_status\",\n                \"description\": \"The status of a vehicle's (i,j)\
+                    \ window.\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.  \
+                    \   \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing\
+                    \ position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 224,\n            \"model\": \"Sienna-EB12\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__1_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 225,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"vehicle__window__2_1_status\",\n               \
+                    \ \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row\
+                    \ and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\\
+                    n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"\
+                    type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n    \
+                    \        \"id\": 226,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n  \
+                    \          \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__fuel__level\",\n                \"description\": \"\
+                    A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\",\n                \"type\":\
+                    \ \"Float\",\n                \"unit_name\": \"percentage\"\n            }\n        },\n        {\n  \
+                    \          \"id\": 227,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n\
+                    \            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"metadata__provider__name\",\n                \"description\"\
+                    : \"The name of the provider\",\n                \"type\": \"String\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 228,\n            \"model\": \"Sienna-EB12\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__roof__sunroof_status\"\
+                    ,\n                \"description\": \"The status of a vehicle's sunroof.\\n0 - Closed\\n1 - Open\\n2 -\
+                    \ Sunroof is tilted-open\\n3 - Sunroof is running\\n4 - Sunroof in anti-wobble position\\n5 - Sunroof\
+                    \ in an intermediate sliding position\\n6 - Sunroof in an intermediate tilted position\\n7 - Invalid\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 229,\n            \"model\": \"Sienna-EB12\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__vin\",\n        \
+                    \        \"description\": \"The vehicle's identification number\",\n                \"type\": \"String\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 230,\n\
+                    \            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"year\": \"\
+                    2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"\
+                    attribute_name\": \"mobility__odometer__value\",\n                \"description\": \"The accumulated distance\
+                    \ traveled by a vehicle in km\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"km\"\n            }\n        },\n        {\n            \"id\": 231,\n            \"model\": \"Sienna-EB12\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 232,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"\
+                    Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"\
+                    attribute\": {\n                \"attribute_name\": \"deprecated_vehicle__provider__oem\",\n         \
+                    \       \"description\": \"The name of the Original Equipment Manufacturer\",\n                \"type\"\
+                    : \"String\",\n                \"unit_name\": \"string\"\n            }\n        },\n        {\n     \
+                    \       \"id\": 233,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n   \
+                    \         \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\":\
+                    \ {\n                \"attribute_name\": \"location__latitude__value\",\n                \"description\"\
+                    : \"The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).\",\n                \"\
+                    type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n        },\n        {\n   \
+                    \         \"id\": 234,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n \
+                    \           \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"metadata__time__epoch\",\n                \"description\":\
+                    \ \"The exact time of a given point (UTC) in Epoch format.\",\n                \"type\": \"Long\",\n \
+                    \               \"unit_name\": \"epoch\"\n            }\n        },\n        {\n            \"id\": 235,\n\
+                    \            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"year\": \"\
+                    2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"\
+                    attribute_name\": \"vehicle__window__2_2_status\",\n                \"description\": \"The status of a\
+                    \ vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1)\
+                    \ for top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\n4 -\
+                    \ Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n \
+                    \               \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 236,\n\
+                    \            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"year\": \"\
+                    2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"\
+                    attribute_name\": \"vehicle__tire__1_2_pressure\",\n                \"description\": \"The exact amount\
+                    \ of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation refers to the i-th\
+                    \ row and j-th column starting from (1,1) top left.\",\n                \"type\": \"Float\",\n       \
+                    \         \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"id\": 237,\n   \
+                    \         \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__window__1_1_status\",\n                \"description\": \"The status of a vehicle's (i,j)\
+                    \ window.\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.  \
+                    \   \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing\
+                    \ position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 238,\n            \"model\": \"Sienna-EB12\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"mobility__speed__value\"\
+                    ,\n                \"description\": \"The vehicle's current speed in Km/h\",\n                \"type\"\
+                    : \"Float\",\n                \"unit_name\": \"km/h\"\n            }\n        },\n        {\n        \
+                    \    \"id\": 239,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n      \
+                    \      \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n\
+                    \                \"attribute_name\": \"vehicle__tire__2_2_pressure\",\n                \"description\"\
+                    : \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation\
+                    \ refers to the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"\
+                    id\": 240,\n            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"vehicle__window__1_2_status\",\n                \"description\": \"The\
+                    \ status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column starting\
+                    \ from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\\
+                    n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n\
+                    \                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 241,\n\
+                    \            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"year\": \"\
+                    2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"\
+                    attribute_name\": \"location__longitude__value\",\n                \"description\": \"The GPS longitudinal\
+                    \ location of a given vehicle in decimal degrees (WGS 84).\",\n                \"type\": \"Float\",\n\
+                    \                \"unit_name\": \"deg\"\n            }\n        },\n        {\n            \"id\": 242,\n\
+                    \            \"model\": \"Sienna-EB12\",\n            \"make\": \"Toyota\",\n            \"year\": \"\
+                    2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"\
+                    attribute_name\": \"vehicle__identification__otonomo_id\",\n                \"description\": \"A unique\
+                    \ vehicle's identification number created by Otonomo\",\n                \"type\": \"String\",\n     \
+                    \           \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 279,\n    \
+                    \        \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n\
+                    \            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__infotainment__time_format\",\n                \"description\": \"indicate the time format\
+                    \ in car's display. 1- 12 hours; 2- 24 hours\",\n                \"type\": \"Integer\",\n            \
+                    \    \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 280,\n           \
+                    \ \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n       \
+                    \     \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__heater_status\",\n                \"description\": \"Indicate the status of the\
+                    \ battery heater. 0- off, 1 - on\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 281,\n            \"model\": \"Model\
+                    \ Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"manufacturer__color__value\"\
+                    ,\n                \"description\": \"The color of a vehicle\",\n                \"type\": \"String\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 282,\n\
+                    \            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__fully_charged\",\n                \"description\": \"Indicate wheater the hv\
+                    \ battery is fully charged. 0 - false, 1- true\",\n                \"type\": \"Integer\",\n          \
+                    \      \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 283,\n         \
+                    \   \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n     \
+                    \       \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__door__1_2_status\",\n                \"description\": \"The vehicle door status. The (i_j)\
+                    \ notation refers to the i-th row and j-th column starting from (1,1) top left. E.g. on a typical passenger\
+                    \ vehicle, vehicle_door_1_1_status relates to the front-left door.    \\n2 - open\\n3 - closed\",\n  \
+                    \              \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 284,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__door__2_2_status\",\n                \"description\"\
+                    : \"The vehicle door status. The (i_j) notation refers to the i-th row and j-th column starting from (1,1)\
+                    \ top left. E.g. on a typical passenger vehicle, vehicle_door_1_1_status relates to the front-left door.\
+                    \    \\n2 - open\\n3 - closed\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 285,\n            \"model\": \"Model\
+                    \ Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__hv_battery__charging_remaining_time\"\
+                    ,\n                \"description\": \"indicates the time left to fully charge EV HV battery\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"minute\"\n            }\n        },\n\
+                    \        {\n            \"id\": 286,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__window__2_1_status\",\n                \"description\"\
+                    : \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing\
+                    \ position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"\
+                    Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"\
+                    id\": 287,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\"\
+                    : \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n              \
+                    \  \"attribute_name\": \"vehicle__hv_battery__charging_mode\",\n                \"description\": \"Indicates\
+                    \ the charging mode - No,Slow,Quick\",\n                \"type\": \"String\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 288,\n            \"model\": \"Model\
+                    \ Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"metadata__provider__name\"\
+                    ,\n                \"description\": \"The name of the provider\",\n                \"type\": \"String\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 289,\n\
+                    \            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__door__1_1_status\",\n                \"description\": \"The vehicle door status. The (i_j)\
+                    \ notation refers to the i-th row and j-th column starting from (1,1) top left. E.g. on a typical passenger\
+                    \ vehicle, vehicle_door_1_1_status relates to the front-left door.    \\n2 - open\\n3 - closed\",\n  \
+                    \              \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 290,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__door__central_lock_status\",\n                \"description\"\
+                    : \"Status of the vehicle central lock.\\n0 - open\\n1 - locked\\n2 - vehicle locked internally\\n3 -\
+                    \ vehicle locked externally\\n4 - vehicle selectively unlocked\\n5 - vehicle secured\\n6 - failure\",\n\
+                    \                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 291,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__identification__vin\",\n                \"description\"\
+                    : \"The vehicle's identification number\",\n                \"type\": \"String\",\n                \"\
+                    unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 292,\n            \"model\"\
+                    : \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__hood__status\"\
+                    ,\n                \"description\": \"Indicates the engine's hood (bonnet) status.\\r\\n0 - closed\\r\\\
+                    n1 - open\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n          \
+                    \  }\n        },\n        {\n            \"id\": 293,\n            \"model\": \"Model Y\",\n         \
+                    \   \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n\
+                    \            \"attribute\": {\n                \"attribute_name\": \"vehicle__door__2_1_status\",\n  \
+                    \              \"description\": \"The vehicle door status. The (i_j) notation refers to the i-th row and\
+                    \ j-th column starting from (1,1) top left. E.g. on a typical passenger vehicle, vehicle_door_1_1_status\
+                    \ relates to the front-left door.    \\n2 - open\\n3 - closed\",\n                \"type\": \"Integer\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 294,\n\
+                    \            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__level\",\n                \"description\": \"HV (high voltage) battery level\
+                    \ in percentage\",\n                \"type\": \"Float\",\n                \"unit_name\": \"percentage\"\
+                    \n            }\n        },\n        {\n            \"id\": 295,\n            \"model\": \"Model Y\",\n\
+                    \            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\",\n\
+                    \                \"description\": \"The accumulated distance traveled by a vehicle in km\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"km\"\n            }\n        },\n    \
+                    \    {\n            \"id\": 296,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"deprecated_vehicle__provider__oem\",\n                \"description\"\
+                    : \"The name of the Original Equipment Manufacturer\",\n                \"type\": \"String\",\n      \
+                    \          \"unit_name\": \"string\"\n            }\n        },\n        {\n            \"id\": 297,\n\
+                    \            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__charging_power\",\n                \"description\": \"current charging power\
+                    \ (only valid while charging) in kW\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"kW\"\n            }\n        },\n        {\n            \"id\": 298,\n            \"model\": \"Model\
+                    \ Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"location__latitude__value\"\
+                    ,\n                \"description\": \"The GPS latitudinal location of a given vehicle in decimal degrees\
+                    \ (WGS 84).\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n       \
+                    \     }\n        },\n        {\n            \"id\": 299,\n            \"model\": \"Model Y\",\n      \
+                    \      \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"mobility__heading__angle\",\n \
+                    \               \"description\": \"The angle between the vehicle's direction in comparison to the north\
+                    \ in degrees\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n      \
+                    \      }\n        },\n        {\n            \"id\": 300,\n            \"model\": \"Model Y\",\n     \
+                    \       \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"metadata__time__epoch\",\n    \
+                    \            \"description\": \"The exact time of a given point (UTC) in Epoch format.\",\n          \
+                    \      \"type\": \"Long\",\n                \"unit_name\": \"epoch\"\n            }\n        },\n    \
+                    \    {\n            \"id\": 301,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__window__2_2_status\",\n                \"description\"\
+                    : \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) for top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing\
+                    \ position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"\
+                    Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"\
+                    id\": 302,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\"\
+                    : \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n              \
+                    \  \"attribute_name\": \"vehicle__hv_battery__charging_rate_km\",\n                \"description\": \"\
+                    Indicate the hv battery charging rate in km/h\",\n                \"type\": \"Float\",\n             \
+                    \   \"unit_name\": \"km/h\"\n            }\n        },\n        {\n            \"id\": 303,\n        \
+                    \    \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n    \
+                    \        \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__window__1_1_status\",\n                \"description\": \"The status of a vehicle's (i,j)\
+                    \ window.\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.  \
+                    \   \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing\
+                    \ position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 304,\n            \"model\": \"Model\
+                    \ Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__trunk__status\"\
+                    ,\n                \"description\": \"The status of a vehicle's trunk (boot).\\n0 - locked\\n1 - closed\
+                    \ unlocked\\n2 - open\\n3 - open at a high speed\",\n                \"type\": \"Integer\",\n        \
+                    \        \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 305,\n       \
+                    \     \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n   \
+                    \         \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__scheduled_charging_pending\",\n                \"description\": \"Indicate wheater\
+                    \ scheduled charging is pending. 0- false; 1-true\",\n                \"type\": \"Integer\",\n       \
+                    \         \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 306,\n      \
+                    \      \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n  \
+                    \          \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__remaining_range\",\n                \"description\": \"The approximated distance\
+                    \ an electric vehicle can drive before running out of battery\",\n                \"type\": \"Float\"\
+                    ,\n                \"unit_name\": \"km\"\n            }\n        },\n        {\n            \"id\": 307,\n\
+                    \            \"model\": \"Model Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__window__1_2_status\",\n                \"description\": \"The status of a vehicle's (i,j)\
+                    \ window.\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.  \
+                    \   \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing\
+                    \ position\\n5 - Currently running\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 308,\n            \"model\": \"Model\
+                    \ Y\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__infotainment__hv_battery_charge_rate_unit\"\
+                    ,\n                \"description\": \"Indicate the display's charge rate unit. mi/hr-1, km/hr-2, kW-3\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 309,\n            \"model\": \"Model Y\",\n            \"make\"\
+                    : \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n          \
+                    \  \"attribute\": {\n                \"attribute_name\": \"vehicle__hv_battery__ac_charging_voltage\"\
+                    ,\n                \"description\": \"The Voltage of the last charging cycle (Alternating current).\"\
+                    ,\n                \"type\": \"Float\",\n                \"unit_name\": \"volt\"\n            }\n    \
+                    \    },\n        {\n            \"id\": 310,\n            \"model\": \"Model Y\",\n            \"make\"\
+                    : \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n          \
+                    \  \"attribute\": {\n                \"attribute_name\": \"location__longitude__value\",\n           \
+                    \     \"description\": \"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\"\
+                    ,\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n     \
+                    \   },\n        {\n            \"id\": 311,\n            \"model\": \"Model Y\",\n            \"make\"\
+                    : \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n          \
+                    \  \"attribute\": {\n                \"attribute_name\": \"vehicle__hv_battery__charging_port_door_status\"\
+                    ,\n                \"description\": \"Indicate wheater the hv battery charging port door is open or closed.\
+                    \ 0- closed, 1-open\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n\
+                    \            }\n        },\n        {\n            \"id\": 312,\n            \"model\": \"Model Y\",\n\
+                    \            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"environment__external__temperature\"\
+                    ,\n                \"description\": \"The current air temperature level outside of the vehicle (ODB-II-PID:46)\
+                    \ in celsius.\",\n                \"type\": \"Float\",\n                \"unit_name\": \"celsius\"\n \
+                    \           }\n        },\n        {\n            \"id\": 313,\n            \"model\": \"Model Y\",\n\
+                    \            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__otonomo_id\"\
+                    ,\n                \"description\": \"A unique vehicle's identification number created by Otonomo\",\n\
+                    \                \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 314,\n            \"model\": \"Model Y\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"environment__internal__temperature\",\n                \"description\"\
+                    : \"The current air temperature inside a vehicle in celsius.\",\n                \"type\": \"Float\",\n\
+                    \                \"unit_name\": \"celsius\"\n            }\n        },\n        {\n            \"id\"\
+                    : 315,\n            \"model\": \"Model 3\",\n            \"make\": \"Tesla\",\n            \"year\": \"\
+                    2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"\
+                    attribute_name\": \"mobility__speed__value\",\n                \"description\": \"The vehicle's current\
+                    \ speed in Km/h\",\n                \"type\": \"Float\",\n                \"unit_name\": \"km/h\"\n  \
+                    \          }\n        },\n        {\n            \"id\": 335,\n            \"model\": \"Highlander-Limited\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__1_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 336,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_1_pressure\",\n         \
+                    \       \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 337,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__fuel__level\",\n                \"\
+                    description\": \"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"percentage\"\n            }\n        },\n\
+                    \        {\n            \"id\": 338,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__vin\",\n        \
+                    \        \"description\": \"The vehicle's identification number\",\n                \"type\": \"String\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 339,\n\
+                    \            \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\",\n            \"year\"\
+                    : \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n              \
+                    \  \"attribute_name\": \"metadata__provider__name\",\n                \"description\": \"The name of the\
+                    \ provider\",\n                \"type\": \"String\",\n                \"unit_name\": \"\"\n          \
+                    \  }\n        },\n        {\n            \"id\": 340,\n            \"model\": \"Highlander-Limited\",\n\
+                    \            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"location__longitude__value\",\n\
+                    \                \"description\": \"The GPS longitudinal location of a given vehicle in decimal degrees\
+                    \ (WGS 84).\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n       \
+                    \     }\n        },\n        {\n            \"id\": 341,\n            \"model\": \"Highlander-Limited\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\"\
+                    ,\n                \"description\": \"The accumulated distance traveled by a vehicle in km\",\n      \
+                    \          \"type\": \"Float\",\n                \"unit_name\": \"km\"\n            }\n        },\n  \
+                    \      {\n            \"id\": 342,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__window__2_2_status\",\n         \
+                    \       \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the\
+                    \ i-th row and j-th column starting from (1,1) for top left.     \\n0 - Intermediate position\\n1 - Opened\\\
+                    n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n   \
+                    \             \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 343,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"deprecated_vehicle__provider__oem\",\n   \
+                    \             \"description\": \"The name of the Original Equipment Manufacturer\",\n                \"\
+                    type\": \"String\",\n                \"unit_name\": \"string\"\n            }\n        },\n        {\n\
+                    \            \"id\": 344,\n            \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__tire__1_2_pressure\",\n                \"description\"\
+                    : \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation\
+                    \ refers to the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"\
+                    Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n        {\n            \"\
+                    id\": 345,\n            \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\",\n      \
+                    \      \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n\
+                    \                \"attribute_name\": \"vehicle__window__1_1_status\",\n                \"description\"\
+                    : \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing\
+                    \ position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"\
+                    Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"\
+                    id\": 346,\n            \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\",\n      \
+                    \      \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n\
+                    \                \"attribute_name\": \"vehicle__window__1_2_status\",\n                \"description\"\
+                    : \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing\
+                    \ position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"\
+                    Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"\
+                    id\": 347,\n            \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\",\n      \
+                    \      \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n\
+                    \                \"attribute_name\": \"metadata__time__epoch\",\n                \"description\": \"The\
+                    \ exact time of a given point (UTC) in Epoch format.\",\n                \"type\": \"Long\",\n       \
+                    \         \"unit_name\": \"epoch\"\n            }\n        },\n        {\n            \"id\": 348,\n \
+                    \           \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\",\n            \"year\"\
+                    : \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n              \
+                    \  \"attribute_name\": \"vehicle__roof__sunroof_status\",\n                \"description\": \"The status\
+                    \ of a vehicle's sunroof.\\n0 - Closed\\n1 - Open\\n2 - Sunroof is tilted-open\\n3 - Sunroof is running\\\
+                    n4 - Sunroof in anti-wobble position\\n5 - Sunroof in an intermediate sliding position\\n6 - Sunroof in\
+                    \ an intermediate tilted position\\n7 - Invalid\",\n                \"type\": \"Integer\",\n         \
+                    \       \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 349,\n        \
+                    \    \"model\": \"Highlander-Limited\",\n            \"make\": \"Toyota\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"mobility__speed__value\",\n                \"description\": \"The vehicle's current speed in Km/h\"\
+                    ,\n                \"type\": \"Float\",\n                \"unit_name\": \"km/h\"\n            }\n    \
+                    \    },\n        {\n            \"id\": 350,\n            \"model\": \"Highlander-Limited\",\n       \
+                    \     \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__otonomo_id\"\
+                    ,\n                \"description\": \"A unique vehicle's identification number created by Otonomo\",\n\
+                    \                \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 351,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_2_pressure\",\n         \
+                    \       \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 352,\n            \"model\": \"Highlander-Limited\",\n            \"make\"\
+                    : \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"location__latitude__value\",\n           \
+                    \     \"description\": \"The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).\"\
+                    ,\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n            }\n     \
+                    \   },\n        {\n            \"id\": 353,\n            \"model\": \"Highlander-Limited\",\n        \
+                    \    \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__window__2_1_status\",\n\
+                    \                \"description\": \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers\
+                    \ to the i-th row and j-th column starting from (1,1) top left.     \\n0 - Intermediate position\\n1 -\
+                    \ Opened\\n2 - Closed\\n3 - Airing position\\n4 - Intermediate, airing position\\n5 - Currently running\"\
+                    ,\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 354,\n            \"model\": \"Model S\",\n            \"make\"\
+                    : \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n          \
+                    \  \"attribute\": {\n                \"attribute_name\": \"vehicle__hv_battery__charging_power\",\n  \
+                    \              \"description\": \"current charging power (only valid while charging) in kW\",\n      \
+                    \          \"type\": \"Float\",\n                \"unit_name\": \"kW\"\n            }\n        },\n  \
+                    \      {\n            \"id\": 355,\n            \"model\": \"Model S\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"environment__external__temperature\",\n                \"description\"\
+                    : \"The current air temperature level outside of the vehicle (ODB-II-PID:46) in celsius.\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"celsius\"\n            }\n        },\n\
+                    \        {\n            \"id\": 356,\n            \"model\": \"Model S\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__door__central_lock_status\",\n                \"description\"\
+                    : \"Status of the vehicle central lock.\\n0 - open\\n1 - locked\\n2 - vehicle locked internally\\n3 -\
+                    \ vehicle locked externally\\n4 - vehicle selectively unlocked\\n5 - vehicle secured\\n6 - failure\",\n\
+                    \                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 357,\n            \"model\": \"Model S\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__door__2_2_status\",\n                \"description\"\
+                    : \"The vehicle door status. The (i_j) notation refers to the i-th row and j-th column starting from (1,1)\
+                    \ top left. E.g. on a typical passenger vehicle, vehicle_door_1_1_status relates to the front-left door.\
+                    \    \\n2 - open\\n3 - closed\",\n                \"type\": \"Integer\",\n                \"unit_name\"\
+                    : \"\"\n            }\n        },\n        {\n            \"id\": 358,\n            \"model\": \"Model\
+                    \ S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__door__1_1_status\"\
+                    ,\n                \"description\": \"The vehicle door status. The (i_j) notation refers to the i-th row\
+                    \ and j-th column starting from (1,1) top left. E.g. on a typical passenger vehicle, vehicle_door_1_1_status\
+                    \ relates to the front-left door.    \\n2 - open\\n3 - closed\",\n                \"type\": \"Integer\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 359,\n\
+                    \            \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__scheduled_charging_pending\",\n                \"description\": \"Indicate wheater\
+                    \ scheduled charging is pending. 0- false; 1-true\",\n                \"type\": \"Integer\",\n       \
+                    \         \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 360,\n      \
+                    \      \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n  \
+                    \          \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__trunk__status\",\n                \"description\": \"The status of a vehicle's trunk (boot).\\\
+                    n0 - locked\\n1 - closed unlocked\\n2 - open\\n3 - open at a high speed\",\n                \"type\":\
+                    \ \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n          \
+                    \  \"id\": 361,\n            \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"\
+                    year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"vehicle__hv_battery__charging_rate_km\",\n                \"description\"\
+                    : \"Indicate the hv battery charging rate in km/h\",\n                \"type\": \"Float\",\n         \
+                    \       \"unit_name\": \"km/h\"\n            }\n        },\n        {\n            \"id\": 362,\n    \
+                    \        \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n\
+                    \            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__door__2_1_status\",\n                \"description\": \"The vehicle door status. The (i_j)\
+                    \ notation refers to the i-th row and j-th column starting from (1,1) top left. E.g. on a typical passenger\
+                    \ vehicle, vehicle_door_1_1_status relates to the front-left door.    \\n2 - open\\n3 - closed\",\n  \
+                    \              \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n\
+                    \        {\n            \"id\": 363,\n            \"model\": \"Model S\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__hv_battery__charging_port_door_status\",\n       \
+                    \         \"description\": \"Indicate wheater the hv battery charging port door is open or closed. 0-\
+                    \ closed, 1-open\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n   \
+                    \         }\n        },\n        {\n            \"id\": 364,\n            \"model\": \"Model S\",\n  \
+                    \          \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__hv_battery__ac_charging_voltage\"\
+                    ,\n                \"description\": \"The Voltage of the last charging cycle (Alternating current).\"\
+                    ,\n                \"type\": \"Float\",\n                \"unit_name\": \"volt\"\n            }\n    \
+                    \    },\n        {\n            \"id\": 365,\n            \"model\": \"Model S\",\n            \"make\"\
+                    : \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n          \
+                    \  \"attribute\": {\n                \"attribute_name\": \"vehicle__door__1_2_status\",\n            \
+                    \    \"description\": \"The vehicle door status. The (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) top left. E.g. on a typical passenger vehicle, vehicle_door_1_1_status relates to\
+                    \ the front-left door.    \\n2 - open\\n3 - closed\",\n                \"type\": \"Integer\",\n      \
+                    \          \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 366,\n     \
+                    \       \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n \
+                    \           \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"manufacturer__color__value\",\n                \"description\": \"The color of a vehicle\",\n    \
+                    \            \"type\": \"String\",\n                \"unit_name\": \"\"\n            }\n        },\n \
+                    \       {\n            \"id\": 367,\n            \"model\": \"Model S\",\n            \"make\": \"Tesla\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__hv_battery__remaining_range\",\n                \"\
+                    description\": \"The approximated distance an electric vehicle can drive before running out of battery\"\
+                    ,\n                \"type\": \"Float\",\n                \"unit_name\": \"km\"\n            }\n      \
+                    \  },\n        {\n            \"id\": 368,\n            \"model\": \"Model S\",\n            \"make\"\
+                    : \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n          \
+                    \  \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__vin\",\n         \
+                    \       \"description\": \"The vehicle's identification number\",\n                \"type\": \"String\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 369,\n\
+                    \            \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"vehicle__hv_battery__charging_mode\",\n                \"description\": \"Indicates the charging mode\
+                    \ - No,Slow,Quick\",\n                \"type\": \"String\",\n                \"unit_name\": \"\"\n   \
+                    \         }\n        },\n        {\n            \"id\": 370,\n            \"model\": \"Model S\",\n  \
+                    \          \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"metadata__provider__name\",\n \
+                    \               \"description\": \"The name of the provider\",\n                \"type\": \"String\",\n\
+                    \                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 371,\n\
+                    \            \"model\": \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\"\
+                    ,\n            \"engine_type\": \"Electric\",\n            \"attribute\": {\n                \"attribute_name\"\
+                    : \"environment__internal__temperature\",\n                \"description\": \"The current air temperature\
+                    \ inside a vehicle in celsius.\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"celsius\"\n            }\n        },\n        {\n            \"id\": 372,\n            \"model\":\
+                    \ \"Model S\",\n            \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\"\
+                    : \"Electric\",\n            \"attribute\": {\n                \"attribute_name\": \"location__longitude__value\"\
+                    ,\n                \"description\": \"The GPS longitudinal location of a given vehicle in decimal degrees\
+                    \ (WGS 84).\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n       \
+                    \     }\n        },\n        {\n            \"id\": 373,\n            \"model\": \"Model S\",\n      \
+                    \      \"make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__hood__status\",\n    \
+                    \            \"description\": \"Indicates the engine's hood (bonnet) status.\\r\\n0 - closed\\r\\n1 -\
+                    \ open\",\n                \"type\": \"Integer\",\n                \"unit_name\": \"\"\n            }\n\
+                    \        },\n        {\n            \"id\": 374,\n            \"model\": \"Model S\",\n            \"\
+                    make\": \"Tesla\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Electric\",\n    \
+                    \        \"attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\",\n      \
+                    \          \"description\": \"The accumulated distance traveled by a vehicle in km\",\n              \
+                    \  \"type\": \"Float\",\n                \"unit_name\": \"km\"\n            }\n        }\n    ]\n}"
+                filtered by page size:
+                  value: "{\n    \"count\": 975,\n    \"next\": \"https://provider-be.us.otono.me/api/vehicle_details_attributes?page=2&page_size=10\"\
+                    ,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 1,\n            \"model\"\
+                    : \"Highlander-XLE\",\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n          \
+                    \  \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"\
+                    vehicle__tire__1_1_pressure\",\n                \"description\": \"The exact amount of tire pressure the\
+                    \ vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) top left.\",\n                \"type\": \"Float\",\n                \"unit_name\"\
+                    : \"psi\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"model\": \"Highlander-XLE\"\
+                    ,\n            \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"\
+                    Gasoline\",\n            \"attribute\": {\n                \"attribute_name\": \"vehicle__tire__2_1_pressure\"\
+                    ,\n                \"description\": \"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\
+                    r\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\",\n     \
+                    \           \"type\": \"Float\",\n                \"unit_name\": \"psi\"\n            }\n        },\n\
+                    \        {\n            \"id\": 3,\n            \"model\": \"Highlander-XLE\",\n            \"make\":\
+                    \ \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__fuel__level\",\n                \"\
+                    description\": \"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"percentage\"\n            }\n        },\n\
+                    \        {\n            \"id\": 4,\n            \"model\": \"Highlander-XLE\",\n            \"make\":\
+                    \ \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n         \
+                    \   \"attribute\": {\n                \"attribute_name\": \"vehicle__identification__vin\",\n        \
+                    \        \"description\": \"The vehicle's identification number\",\n                \"type\": \"String\"\
+                    ,\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"id\": 5,\n\
+                    \            \"model\": \"Highlander-XLE\",\n            \"make\": \"Toyota\",\n            \"year\":\
+                    \ \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n              \
+                    \  \"attribute_name\": \"metadata__provider__name\",\n                \"description\": \"The name of the\
+                    \ provider\",\n                \"type\": \"String\",\n                \"unit_name\": \"\"\n          \
+                    \  }\n        },\n        {\n            \"id\": 6,\n            \"model\": \"Highlander-XLE\",\n    \
+                    \        \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"location__longitude__value\",\n\
+                    \                \"description\": \"The GPS longitudinal location of a given vehicle in decimal degrees\
+                    \ (WGS 84).\",\n                \"type\": \"Float\",\n                \"unit_name\": \"deg\"\n       \
+                    \     }\n        },\n        {\n            \"id\": 7,\n            \"model\": \"Highlander-XLE\",\n \
+                    \           \"make\": \"Toyota\",\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\"\
+                    ,\n            \"attribute\": {\n                \"attribute_name\": \"mobility__odometer__value\",\n\
+                    \                \"description\": \"The accumulated distance traveled by a vehicle in km\",\n        \
+                    \        \"type\": \"Float\",\n                \"unit_name\": \"km\"\n            }\n        },\n    \
+                    \    {\n            \"id\": 8,\n            \"model\": \"Highlander-XLE\",\n            \"make\": \"Toyota\"\
+                    ,\n            \"year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\"\
+                    : {\n                \"attribute_name\": \"vehicle__window__2_2_status\",\n                \"description\"\
+                    : \"The status of a vehicle's (i,j) window.\\nThe (i_j) notation refers to the i-th row and j-th column\
+                    \ starting from (1,1) for top left.     \\n0 - Intermediate position\\n1 - Opened\\n2 - Closed\\n3 - Airing\
+                    \ position\\n4 - Intermediate, airing position\\n5 - Currently running\",\n                \"type\": \"\
+                    Integer\",\n                \"unit_name\": \"\"\n            }\n        },\n        {\n            \"\
+                    id\": 9,\n            \"model\": \"Highlander-XLE\",\n            \"make\": \"Toyota\",\n            \"\
+                    year\": \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n        \
+                    \        \"attribute_name\": \"deprecated_vehicle__provider__oem\",\n                \"description\":\
+                    \ \"The name of the Original Equipment Manufacturer\",\n                \"type\": \"String\",\n      \
+                    \          \"unit_name\": \"string\"\n            }\n        },\n        {\n            \"id\": 10,\n\
+                    \            \"model\": \"Highlander-XLE\",\n            \"make\": \"Toyota\",\n            \"year\":\
+                    \ \"2021\",\n            \"engine_type\": \"Gasoline\",\n            \"attribute\": {\n              \
+                    \  \"attribute_name\": \"vehicle__tire__1_2_pressure\",\n                \"description\": \"The exact\
+                    \ amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\r\\nThe (i_j) notation refers to\
+                    \ the i-th row and j-th column starting from (1,1) top left.\",\n                \"type\": \"Float\",\n\
+                    \                \"unit_name\": \"psi\"\n            }\n        }\n    ]\n}"
+                empty response:
+                  value: "{\n    \"count\": 0,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": []\n}"
+              schema:
+                oneOf:
+                - title: filtered by make & year
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                      example: 73
+                      default: 0
+                    next: {}
+                    previous: {}
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1195
+                            default: 0
+                          model:
+                            type: string
+                            example: Camry-FA20
+                          make:
+                            type: string
+                            example: Toyota
+                          year:
+                            type: string
+                            example: '2018'
+                          engine_type:
+                            type: string
+                            example: Gasoline
+                          attribute:
+                            type: object
+                            properties:
+                              attribute_name:
+                                type: string
+                                example: event__brake__harsh
+                              description:
+                                type: string
+                                example: indicates whether a harsh brake event was triggered 1 - event-triggered 0 - event
+                                  stopped
+                              type:
+                                type: string
+                                example: Integer
+                              unit_name:
+                                type: string
+                                example: ''
+                - title: filtered by page number
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                      example: 975
+                      default: 0
+                    next:
+                      type: string
+                      example: https://provider-be.us.otono.me/api/vehicle_details_attributes?page=4
+                    previous:
+                      type: string
+                      example: https://provider-be.us.otono.me/api/vehicle_details_attributes?page=2
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 220
+                            default: 0
+                          model:
+                            type: string
+                            example: Tundra-SR5 grade
+                          make:
+                            type: string
+                            example: Toyota
+                          year:
+                            type: string
+                            example: '2021'
+                          engine_type:
+                            type: string
+                            example: Gasoline
+                          attribute:
+                            type: object
+                            properties:
+                              attribute_name:
+                                type: string
+                                example: location__latitude__value
+                              description:
+                                type: string
+                                example: The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).
+                              type:
+                                type: string
+                                example: Float
+                              unit_name:
+                                type: string
+                                example: deg
+                - title: filtered by page size
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                      example: 975
+                      default: 0
+                    next:
+                      type: string
+                      example: https://provider-be.us.otono.me/api/vehicle_details_attributes?page=2&page_size=10
+                    previous: {}
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 1
+                            default: 0
+                          model:
+                            type: string
+                            example: Highlander-XLE
+                          make:
+                            type: string
+                            example: Toyota
+                          year:
+                            type: string
+                            example: '2021'
+                          engine_type:
+                            type: string
+                            example: Gasoline
+                          attribute:
+                            type: object
+                            properties:
+                              attribute_name:
+                                type: string
+                                example: vehicle__tire__1_1_pressure
+                              description:
+                                type: string
+                                example: "The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\r\n\
+                                  The (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left."
+                              type:
+                                type: string
+                                example: Float
+                              unit_name:
+                                type: string
+                                example: psi
+                - title: empty response
+                  type: object
+                  properties:
+                    count:
+                      type: integer
+                      example: 0
+                      default: 0
+                    next: {}
+                    previous: {}
+                    results:
+                      type: array
+                      items:
+                        type: object
+                        properties: {}
+      deprecated: false
+      security: []
+      tags:
+      - EU
+  /v1/personal/reports/vehiclesstatus:
+    post:
+      summary: Vehicle Status - Bulk Report
+      description: This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report
+        which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu).
+      operationId: bulk-vehicles-status-for-fleets-eu
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                vins:
+                  type: array
+                  description: array of VINs
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"request_id\": \"119a499\",\n    \"request_uuid\": \"f4750e67-08f1-4e87-bf18-eed6273d9\"\
+                    ,\n    \"report_status\": \"Pending\"\n}"
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    example: 119a499
+                  request_uuid:
+                    type: string
+                    example: f4750e67-08f1-4e87-bf18-eed6273d9
+                  report_status:
+                    type: string
+                    example: Pending
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+  /vehicle-connectivity/{vin}:
+    get:
+      summary: Connectivity Check
+      description: This call provides the ability to verify a vehicle's connectivity capabilities.
+      operationId: connectivity-check
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      - name: VIN
+        in: path
+        description: VIN of the vehicle quoted, "VIN"
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"vin\": \"0TNM466C4LKPBWRHS\",\n    \"make\": \"otonomo-demo\",\n    \"connectivity\": \"\
+                    supported\"\n}"
+              schema:
+                type: object
+                properties:
+                  vin:
+                    type: string
+                    example: 0TNM466C4LKPBWRHS
+                  make:
+                    type: string
+                    example: otonomo-demo
+                  connectivity:
+                    type: string
+                    example: supported
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+  /v1/oauth/token:
+    post:
+      summary: Driver Access Token
+      description: This token is used to access driver-specific data.
+      operationId: driver-access-token
+      parameters:
+      - name: content-type
+        in: header
+        description: '`application/x-www-form-urlencoded`'
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - code
+              - redirect_uri
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  description: '`authorization_code`'
+                code:
+                  type: integer
+                  description: The authorization code obtained from the permissions dialog redirect. See https://otonomo-docs.readme.io/docs/obtaining-driver-consent
+                  format: int64
+                redirect_uri:
+                  type: integer
+                  description: The URI a user will be redirected to after authorization.
+                  format: int64
+                client_id:
+                  type: string
+                  description: The identification string of the consumer found on developer platform.
+                client_secret:
+                  type: string
+                  description: The client secret (equivalent to a password) of a consumer found on developer platform.
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"access_token\": \"kUXuQirqMHB8UonUg8ut4reXURDhCuv1UIs0mZdajH1z2HxABDC\",\n  \"token_type\"\
+                    : \"Bearer\",\n  \"expires_in\": 3600,\n  \"refresh_token\": \"kUXuQirqMHB8UonUg8ut4reXURDhCuv1UIs0mZdajH1z2Hx4Hf\"\
+                    \n}"
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: kUXuQirqMHB8UonUg8ut4reXURDhCuv1UIs0mZdajH1z2HxABDC
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 3600
+                    default: 0
+                  refresh_token:
+                    type: string
+                    example: kUXuQirqMHB8UonUg8ut4reXURDhCuv1UIs0mZdajH1z2Hx4Hf
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Bad Request:
+                  value: "{\n  \"error\": \"unsupported_grant_type\"\n}"
+                Result:
+                  value: "{\n\t\"error_description\": \"Mismatching redirect URI.\",\n\t\"error\": \"invalid_request\"\n}"
+              schema:
+                oneOf:
+                - title: Bad Request
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      example: unsupported_grant_type
+                - type: object
+                  properties:
+                    error_description:
+                      type: string
+                      example: Mismatching redirect URI.
+                    error:
+                      type: string
+                      example: invalid_request
+        '401':
+          description: '401'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"error\": \"invalid_client\"\n}"
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: invalid_client
+      deprecated: false
+      tags:
+      - US
+      security: []
+  /v1/personal/reports/points:
+    post:
+      summary: Fleet Points Data
+      description: This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you
+        can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). premium feature - to unlock
+        please contact support@otonomo.io
+      operationId: fleet-points-historical-data
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      - name: content-type
+        in: header
+        description: '`application/json`'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - start_datetime
+              - end_datetime
+              properties:
+                vins:
+                  type: array
+                  description: Array of vins, quoted and comma delimited
+                  items:
+                    type: string
+                start_datetime:
+                  type: string
+                  description: The start date and time of the report (YYYY-MM-DD HH:MM:SS). This is a mandatory field.
+                end_datetime:
+                  type: string
+                  description: The end date and time of the report (YYYY-MM-DD HH:MM:SS). This is a mandatory field.
+                country_codes:
+                  type: array
+                  description: Comma separated strings of 2-or-3 lettered country codes.
+                  items:
+                    type: string
+                states:
+                  type: array
+                  description: Comma separated strings of state names. The country_codes filter is required when using this
+                    parameter.
+                  items:
+                    type: string
+                cities:
+                  type: array
+                  description: Comma separated strings of city names. The country_codes filter is required when using this
+                    parameter.
+                  items:
+                    type: string
+                polygon:
+                  type: array
+                  description: 'We support 2 formats: 1. WKT Format 2. A list of lists comprised of dictionaries representing
+                    each point (lon, lat) in a polygon. The country_codes filter is required when using this parameter.'
+                  items:
+                    type: string
+                cars_limit:
+                  type: integer
+                  description: The maximum number of cars the report should return.
+                  format: int32
+                records_limit:
+                  type: integer
+                  description: The maximum number of data points allowed per report. This is a mandatory field.
+                  format: int32
+            examples:
+              Request Example:
+                value:
+                  vins:
+                  - VIN1
+                  - VIN2
+                  - VIN3
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"request_id\": \"119a499\",\n    \"request_uuid\": \"f4750e67-08f1-4e87-bf18-eed6273d9\"\
+                    ,\n    \"report_status\": \"Pending\"\n}"
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    example: 119a499
+                  request_uuid:
+                    type: string
+                    example: f4750e67-08f1-4e87-bf18-eed6273d9
+                  report_status:
+                    type: string
+                    example: Pending
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+  /v1/personal/reports/trips_points:
+    post:
+      summary: Fleet Trips Points
+      description: This call provides Fleet Trips Points data for vehicles in an asynchronous mode. It creates a report which
+        you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). The report includes
+        any trip points that have a start time and end time within the configured period.
+      operationId: fleet-trips-points
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      - name: content-type
+        in: header
+        description: '`application/json`'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - start_datetime
+              - end_datetime
+              properties:
+                vins:
+                  type: array
+                  description: Array of vins, quoted and comma delimited.
+                  items:
+                    type: string
+                start_datetime:
+                  type: string
+                  description: The start date and time of the report (YYYY-MM-DD HH:MM:SS). This is a mandatory field.
+                end_datetime:
+                  type: string
+                  description: The end date and time of the report (YYYY-MM-DD HH:MM:SS). This is a mandatory field.
+                country_codes:
+                  type: array
+                  description: Comma separated strings of 2-or-3 lettered country codes.
+                  items:
+                    type: string
+                states:
+                  type: array
+                  description: Comma separated strings of state names. The country_codes filter is required when using this
+                    parameter.
+                  items:
+                    type: string
+                cities:
+                  type: array
+                  description: Comma separated strings of city names. The country_codes filter is required when using this
+                    parameter.
+                  items:
+                    type: string
+                polygon:
+                  type: array
+                  description: 'We support 2 formats: 1. WKT Format 2. A list of lists comprised of dictionaries representing
+                    each point (lon, lat) in a polygon. The country_codes filter is required when using this parameter.'
+                  items:
+                    type: string
+                cars_limit:
+                  type: integer
+                  description: The maximum number of cars the report should return.
+                  format: int32
+                records_limit:
+                  type: integer
+                  description: The maximum number of data points allowed per report. This is a mandatory field.
+                  format: int32
+                trip_ids:
+                  type: string
+                  description: Specify the trip_id that you wish to extract its points into a separated report.
+                start_at:
+                  type: boolean
+                  description: When set as 'true', the generated report will include Trips that have started at the selected
+                    geography (Country, State, City, Polygon)
+                  default: true
+                pass_through:
+                  type: boolean
+                  description: When set as 'true', the generated report will include Trips that have passed through the selected
+                    geography (Country, State, City, Polygon)
+                  default: true
+                end_at:
+                  type: boolean
+                  description: When set as 'true', the generated report will include Trips that have ended at the selected
+                    geography (Country, State, City, Polygon)
+                  default: true
+            examples:
+              Request Example:
+                value:
+                  vins:
+                  - VIN1
+                  - VIN2
+                  - VIN3
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"request_id\": 1027303,\n    \"request_uuid\": \"f4750e67-08f1-4e87-bf18-eed6254s6\",\n\
+                    \    \"report_status\": \"Pending\"\n}"
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: integer
+                    example: 1027303
+                    default: 0
+                  request_uuid:
+                    type: string
+                    example: f4750e67-08f1-4e87-bf18-eed6254s6
+                  report_status:
+                    type: string
+                    example: Pending
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+  /oauth/token/:
+    post:
+      summary: General Access Token
+      description: This token is used to access information pertaining to the entire account
+      operationId: general-access-token
+      parameters:
+      - name: content-type
+        in: header
+        description: '`application/x-www-form-urlencoded`'
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+              - audience
+              properties:
+                client_id:
+                  type: string
+                  description: The identification string of the client found on the developer platform.
+                client_secret:
+                  type: string
+                  description: The client secret (equivalent to a password) found on the developer platform.
+                grant_type:
+                  type: string
+                  description: '`client_credentials`'
+                audience:
+                  type: string
+                  description: https://api.otonomo.io
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5UTkZORGxHT0VJeE5qZzNNVUkxUmpJMVJUZEJPRE15UlVVM05VTTJOa1ZETjBNNU1URTVOUSJ9.eyJodHRwczovL290b25vbW8uaW8vbmFtZSI6Im90b0FwcHMiLCJodHRwczovL290b25vbW8uaW8vdXNlcl90eXBlIjoidG9ub21vLmlvL3ZlbmRvciI6Im90b0FwcHMiLCJpc3MiOiJodHRwczovL2F1dGgub3Rvbm9tb\"\
+                    ,\n  \"expires_in\": 86400,\n  \"token_type\": \"Bearer\"\n}"
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5UTkZORGxHT0VJeE5qZzNNVUkxUmpJMVJUZEJPRE15UlVVM05VTTJOa1ZETjBNNU1URTVOUSJ9.eyJodHRwczovL290b25vbW8uaW8vbmFtZSI6Im90b0FwcHMiLCJodHRwczovL290b25vbW8uaW8vdXNlcl90eXBlIjoidG9ub21vLmlvL3ZlbmRvciI6Im90b0FwcHMiLCJpc3MiOiJodHRwczovL2F1dGgub3Rvbm9tb
+                  expires_in:
+                    type: integer
+                    example: 86400
+                    default: 0
+                  token_type:
+                    type: string
+                    example: Bearer
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - US
+      security: []
+  /v1/personal/reports/requests/{Request_id}:
+    get:
+      summary: Get Report Status
+      description: 'You can obtain the completion status of a previous request. To specify which request you want to retrieve,
+        use the request ID returned by the corresponding report endpoint. Status:Ongoing: The request is still in the process
+        of being rendered. Completed: The request is ready. Expired: The report was generated over 30 days ago and is now
+        expired. Once the status is “completed”, a link to the generated CSV is provided in the response section.'
+      operationId: get-report-status-eu
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer Ersdf53hty46dfg
+      - name: Request_id
+        in: path
+        description: Extracted from the response of historical data request.
+        schema:
+          type: integer
+          format: int32
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Completed:
+                  value: "{\n    \"id\": \"100000\",\n    \"uuid\": \"12dw2f4c-60d2-48ab-87ae-298365501cc8\",\n    \"report\"\
+                    : \"BulkVehicleStatus\",\n    \"status\": \"Completed\",\n    \"result_url_list\": {\n        \"part-00000-e6332154-f50b-4560-b80d-ef1dc7f69285-c000.csv\"\
+                    : {\n            \"url\": \"https://prod-otonomo-reports.s3-accelerate.amazonaws.com/reports/1006128/part-00000-e6332154-f50b-4560-b80d-ef1dc7f69285-c000.csv?AWSAccessKeyId=AKIAJNZTRffgPJLBQR6Q&Signature=xnhGaa2VJ%2FYdON3L2csv5arSsMM%3D&Expires=1603522322\"\
+                    ,\n            \"size\": \"148\"\n        }\n    }\n}"
+                Ongoing:
+                  value: "{\n    \"result_url_list\": {},\n    \"id\": \"1234\",\n    \"report\": \"AnonymousHistoricalRawData\"\
+                    ,\n    \"status\": \"Ongoing\"\n}"
+                Killed:
+                  value: "{\n  \"id\": \"1377\",\n  \"report\": \"29\",\n  \"status\": \"Killed\",\n  \"result_url_list\"\
+                    : null\n}"
+                Pending:
+                  value: "{\n  \"id\": \"1377\",\n  \"report\": \"29\",\n  \"status\": \"Pending\",\n  \"result_url_list\"\
+                    : null\n}"
+                Failed:
+                  value: "{\n  \"id\": \"1377\",\n  \"report\": \"29\",\n  \"status\": \"Failed\",\n  \"result_url_list\"\
+                    : null\n}"
+                Submitted:
+                  value: "{\n  \"id\": \"1377\",\n  \"report\": \"29\",\n  \"status\": \"Submitted\",\n  \"result_url_list\"\
+                    : null\n}"
+                Expired:
+                  value: "{\n    \"status\": \"Expired\",\n    \"report\": \"AnonymousHistoricalRawData\",\n    \"id\": 1234,\n\
+                    \    \"result_url_list\": {\n        \"part-00000-69e3a308-da27-48e3-b844-2aef978c33c0-c000.csv\": {\n\
+                    \            \"size\": 18642,\n            \"url\": \"https://prod-otonomo-reports.s3-accelerate.amazonaws.com/1234/part-00000-69e3a308-da27-48e3-b844-2aef978c33c0-c000.csv?response-content-disposition=attachment%3B%20filename%20%3D%206801%2Fpart-00000-69e3a308-da27-48e3-b844-2aef978c33c0-c000_20190115T110000Z.csv&Signature=wkRgLSqkmcZ36ElBEf4mTRrae78%3D&AWSAccessKeyId=ASIAZQTBCJVRLHMZECUC&x-amz-security-token=FwoGZXIvYXdzEFMaDDxD7i24q%2BsUfD6akiLqAjang%2B4NF6wK1B4QHeXn4%2BmXpV3SqoqgMMJFcLy%2BNHsqn4VWjX3DaG%2F9O%2F1uqcBdTtCTPvoQgRkOP7cA57RgGIr7HK6jPGbX5JSr9qdQjXJ1dmxeakl%2B1otBMDGJtSKwVGws%2BDxQ195wEwEehdskKWYn4b8yb%2BaOU3SLCyXcb%2FaIUti4kCJOE7PKol1I%2FAZ2H6dIVeSmpZNWTBKlmGcDcohmXh3rLPYivFffT37WWx1hTEd9GfR%2BOjDHp5xRBYXz4Z7AbRBwDompxeEt9DyiHMjwJvaDf8%3D&Expires=1573033812\"\
+                    \n        }\n    }\n}"
+              schema:
+                oneOf:
+                - title: Completed
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: '100000'
+                    uuid:
+                      type: string
+                      example: 12dw2f4c-60d2-48ab-87ae-298365501cc8
+                    report:
+                      type: string
+                      example: BulkVehicleStatus
+                    status:
+                      type: string
+                      example: Completed
+                    result_url_list:
+                      type: object
+                      properties:
+                        part-00000-e6332154-f50b-4560-b80d-ef1dc7f69285-c000.csv:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: https://prod-otonomo-reports.s3-accelerate.amazonaws.com/reports/1006128/part-00000-e6332154-f50b-4560-b80d-ef1dc7f69285-c000.csv?AWSAccessKeyId=AKIAJNZTRffgPJLBQR6Q&Signature=xnhGaa2VJ%2FYdON3L2csv5arSsMM%3D&Expires=1603522322
+                            size:
+                              type: string
+                              example: '148'
+                - title: Ongoing
+                  type: object
+                  properties:
+                    result_url_list:
+                      type: object
+                      properties: {}
+                    id:
+                      type: string
+                      example: '1234'
+                    report:
+                      type: string
+                      example: AnonymousHistoricalRawData
+                    status:
+                      type: string
+                      example: Ongoing
+                - title: Killed
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: '1377'
+                    report:
+                      type: string
+                      example: '29'
+                    status:
+                      type: string
+                      example: Killed
+                    result_url_list: {}
+                - title: Pending
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: '1377'
+                    report:
+                      type: string
+                      example: '29'
+                    status:
+                      type: string
+                      example: Pending
+                    result_url_list: {}
+                - title: Failed
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: '1377'
+                    report:
+                      type: string
+                      example: '29'
+                    status:
+                      type: string
+                      example: Failed
+                    result_url_list: {}
+                - title: Submitted
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: '1377'
+                    report:
+                      type: string
+                      example: '29'
+                    status:
+                      type: string
+                      example: Submitted
+                    result_url_list: {}
+                - title: Expired
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      example: Expired
+                    report:
+                      type: string
+                      example: AnonymousHistoricalRawData
+                    id:
+                      type: integer
+                      example: 1234
+                      default: 0
+                    result_url_list:
+                      type: object
+                      properties:
+                        part-00000-69e3a308-da27-48e3-b844-2aef978c33c0-c000.csv:
+                          type: object
+                          properties:
+                            size:
+                              type: integer
+                              example: 18642
+                              default: 0
+                            url:
+                              type: string
+                              example: https://prod-otonomo-reports.s3-accelerate.amazonaws.com/1234/part-00000-69e3a308-da27-48e3-b844-2aef978c33c0-c000.csv?response-content-disposition=attachment%3B%20filename%20%3D%206801%2Fpart-00000-69e3a308-da27-48e3-b844-2aef978c33c0-c000_20190115T110000Z.csv&Signature=wkRgLSqkmcZ36ElBEf4mTRrae78%3D&AWSAccessKeyId=ASIAZQTBCJVRLHMZECUC&x-amz-security-token=FwoGZXIvYXdzEFMaDDxD7i24q%2BsUfD6akiLqAjang%2B4NF6wK1B4QHeXn4%2BmXpV3SqoqgMMJFcLy%2BNHsqn4VWjX3DaG%2F9O%2F1uqcBdTtCTPvoQgRkOP7cA57RgGIr7HK6jPGbX5JSr9qdQjXJ1dmxeakl%2B1otBMDGJtSKwVGws%2BDxQ195wEwEehdskKWYn4b8yb%2BaOU3SLCyXcb%2FaIUti4kCJOE7PKol1I%2FAZ2H6dIVeSmpZNWTBKlmGcDcohmXh3rLPYivFffT37WWx1hTEd9GfR%2BOjDHp5xRBYXz4Z7AbRBwDompxeEt9DyiHMjwJvaDf8%3D&Expires=1573033812
+      deprecated: false
+      tags:
+      - EU
+  /v1/personal/reports/trips:
+    post:
+      summary: Fleet Trips Data
+      description: This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you
+        can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). This is a premium feature
+        - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within
+        the configured period.The report includes any trip that has started at, ended at or passed through the selected geography  (Country,
+        State, City, or Polygon).
+      operationId: personal-trips-data-historical
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      - name: content-type
+        in: header
+        description: '`application/json`'
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - start_datetime
+              - end_datetime
+              properties:
+                vins:
+                  type: array
+                  description: Array of vins, quoted and comma delimited.
+                  items:
+                    type: string
+                start_datetime:
+                  type: string
+                  description: The start date and time of the report (YYYY-MM-DD HH:MM:SS). This is a mandatory field.
+                end_datetime:
+                  type: string
+                  description: The end date and time of the report (YYYY-MM-DD HH:MM:SS). This is a mandatory field.
+                country_codes:
+                  type: array
+                  description: Comma separated strings of 2-or-3 lettered country codes.
+                  items:
+                    type: string
+                states:
+                  type: array
+                  description: Comma separated strings of state names. The country_codes filter is required when using this
+                    parameter.
+                  items:
+                    type: string
+                cities:
+                  type: array
+                  description: Comma separated strings of city names. The country_codes filter is required when using this
+                    parameter.
+                  items:
+                    type: string
+                polygon:
+                  type: array
+                  description: 'We support 2 formats: 1. WKT Format 2. A list of lists comprised of dictionaries representing
+                    each point (lon, lat) in a polygon. The country_codes filter is required when using this parameter.'
+                  items:
+                    type: string
+                cars_limit:
+                  type: integer
+                  description: The maximum number of cars the report should return.
+                  format: int32
+                records_limit:
+                  type: integer
+                  description: The maximum number of data points allowed per report. This is a mandatory field.
+                  format: int32
+                start_at:
+                  type: boolean
+                  description: When set as 'true, the generated report will include Trips that have started at the selected
+                    geography (Country, State, City, Polygon)
+                  default: true
+                pass_through:
+                  type: boolean
+                  description: When set as 'true, the generated report will include Trips that have passed through the selected
+                    geography (Country, State, City, Polygon)
+                  default: true
+                end_at:
+                  type: boolean
+                  description: When set as 'true, the generated report will include Trips that have ended at the selected
+                    geography (Country, State, City, Polygon)
+                  default: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"request_id\": \"119a499\",\n    \"request_uuid\": \"f4750e67-08f1-4e87-bf18-eed6273d9\"\
+                    ,\n    \"report_status\": \"Pending\"\n}"
+              schema:
+                type: object
+                properties:
+                  request_id:
+                    type: string
+                    example: 119a499
+                  request_uuid:
+                    type: string
+                    example: f4750e67-08f1-4e87-bf18-eed6273d9
+                  report_status:
+                    type: string
+                    example: Pending
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+  /v1/oauth/token/:
+    post:
+      summary: Fleet (Workspace) Access Token - EU
+      description: This token is used to access information pertaining to a personal  fleet data Workspace in  Europe.
+      operationId: workspace-access-token-eu
+      parameters:
+      - name: content-type
+        in: header
+        description: '`application/x-www-form-urlencoded`'
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - client_id
+              - client_secret
+              - grant_type
+              - service
+              properties:
+                client_id:
+                  type: string
+                  description: The identification string of the client found on the developer platform.
+                client_secret:
+                  type: string
+                  description: The client secret (equivalent to a password) found on the developer platform.
+                grant_type:
+                  type: string
+                  description: '`client_credentials`'
+                service:
+                  type: string
+                  description: 'The service ID - more details can be found here: https://docs.otonomo.io/docs/q-a#section-where-can-i-find-my-service-id'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5UTkZORGxHT0VJeE5qZzNNVUkxUmpJMVJUZEJPRE15UlVVM05VTTJOa1ZETjBNNU1URTVOUSJ9.eyJodHRwczovL290b25vbW8uaW8vbmFtZSI6Im90b0FwcHMiLCJodHRwczovL290b25vbW8uaW8vdXNlcl90eXBlIjoidG9ub21vLmlvL3ZlbmRvciI6Im90b0FwcHMiLCJpc3MiOiJodHRwczovL2F1dGgub3Rvbm9tb\"\
+                    ,\n  \"expires_in\": 86400,\n  \"token_type\": \"Bearer\"\n}"
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    example: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5UTkZORGxHT0VJeE5qZzNNVUkxUmpJMVJUZEJPRE15UlVVM05VTTJOa1ZETjBNNU1URTVOUSJ9.eyJodHRwczovL290b25vbW8uaW8vbmFtZSI6Im90b0FwcHMiLCJodHRwczovL290b25vbW8uaW8vdXNlcl90eXBlIjoidG9ub21vLmlvL3ZlbmRvciI6Im90b0FwcHMiLCJpc3MiOiJodHRwczovL2F1dGgub3Rvbm9tb
+                  expires_in:
+                    type: integer
+                    example: 86400
+                    default: 0
+                  token_type:
+                    type: string
+                    example: Bearer
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - EU
+      security: []
+  /v2/vehicle-management/vehicles/:
+    get:
+      summary: Vehicle Management - Get All VINs
+      description: This call provides the latest status of all existing VINs of a specific Workspace in the Vehicle Management.
+        [Click here for the statuses list](https://docs.otonomo.io/docs/vehicle-management-for-fleets)
+      operationId: vehicle-management-get-all-vins
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer Ersdf53hty46dfg
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Completed:
+                  value: "{\n    \"vehicles\": [\n         {\n          \"vin\": \"VIN1\",\n          \"make\": \"Mercedes\"\
+                    ,\n          \"status\": \"enabled\",\n          \"last_update\": \"2020-05-07 10:12\"\n         },\n\
+                    \         {\n            \"vin\": \"VIN2\",\n            \"make\": \"Toyota\",\n          \"status\":\
+                    \ \"pending\",\n          \"last_update\": \"2020-08-01 09:42\"\n         }\n      ]\n}"
+              schema:
+                type: object
+                properties:
+                  vehicles:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        vin:
+                          type: string
+                          example: VIN1
+                        make:
+                          type: string
+                          example: Mercedes
+                        status:
+                          type: string
+                          example: enabled
+                        last_update:
+                          type: string
+                          example: 2020-05-07 10:12
+      deprecated: false
+      tags:
+      - EU
+    post:
+      summary: Vehicle Management - Upload new VINs
+      description: With this call you can upload new VINs to a specific fleet. you can add the following static data to each
+        vehicle -  one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity
+      operationId: vehicle-management-upload-new-vin
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RAW_BODY:
+                  type: string
+                  description: '{     "vins": [         {             "vin": "VIN1",             "labels": [                 {                     "name":
+                    "lable1"                 }             ],             "name": "car_name",             "license_plate":
+                    "MS234432",             "color": "black",             "model": "X1",             "year": 2023,             "fuel_type":
+                    "GASOLINE",             "fuel_capacity": 60,             "battery_capacity": null         },         {             "vin":
+                    "VIN2",             "labels": [                 {                     "name": "lable1"                 },                 {                     "name":
+                    "lable2"                 }             ],             "name": "car-name",             "license_plate":
+                    "9474281",             "color": "white",             "model": "RAV4",             "year": 2019,             "fuel_type":
+                    "HYBRID_GASOLINE",             "fuel_capacity": 60,             "battery_capacity": 120.0         }     ]
+                    }'
+                  format: json
+            examples:
+              Request Example:
+                value:
+                  vins:
+                  - vin: VIN1
+                    odometer: '1234'
+                  - vin: VIN2
+                    odometer: '5678'
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"summary\": {\n        \"success\": \"2\",\n        \"errors\": \"0\"\n    },\n    \"data\"\
+                    : [\n        {\n            \"vin\": \"VIN1\",\n            \"uploadStatus\": \"success\"\n        },\n\
+                    \        {\n            \"vin\": \"VIN2\",\n            \"uploadStatus\":\"success\"\n        }\n    ]\n\
+                    }"
+              schema:
+                type: object
+                properties:
+                  summary:
+                    type: object
+                    properties:
+                      success:
+                        type: string
+                        example: '2'
+                      errors:
+                        type: string
+                        example: '0'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        vin:
+                          type: string
+                          example: VIN1
+                        uploadStatus:
+                          type: string
+                          example: success
+        '201':
+          description: '201'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"summary\": {\n        \"success\": \"0\",\n        \"errors\": \"1\"\n    },\n    \"data\"\
+                    : [\n        {\n            \"vin\": \"VIN1\",\n            \"uploadStatus\": \"error\",\n           \
+                    \ \"error\": \"Already exist\"\n        }\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  summary:
+                    type: object
+                    properties:
+                      success:
+                        type: string
+                        example: '0'
+                      errors:
+                        type: string
+                        example: '1'
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        vin:
+                          type: string
+                          example: VIN1
+                        uploadStatus:
+                          type: string
+                          example: error
+                        error:
+                          type: string
+                          example: Already exist
+      deprecated: false
+      tags:
+      - EU
+  /v2/vehicle-management/vehicles/remove:
+    post:
+      summary: Vehicle Management - Delete VINs
+      description: With this call you can delete existing VINs from a fleet.
+      operationId: vehicle-management-remove-vins
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                VIN1:
+                  type: string
+                  description: 'Vehicle ID #1 quoted, "VIN1"'
+                VIN2:
+                  type: string
+                  description: 'Vehicle ID #2 quoted, "VIN2"'
+                VIN3:
+                  type: string
+                  description: 'Vehicle ID #3 quoted, "VIN3"'
+            examples:
+              Request Example:
+                value:
+                  vins:
+                  - VIN1
+                  - VIN2
+      responses:
+        '204':
+          description: '204'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"the following vin where not found under you workspace\",\n    \"vins\": [\n\
+                    \        \"VIN1\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: the following vin where not found under you workspace
+                  vins:
+                    type: array
+                    items:
+                      type: string
+                      example: VIN1
+      deprecated: false
+      tags:
+      - EU
+  /v2/vehicle-management/vehicles/enable:
+    post:
+      summary: Vehicle Management - Request VIN Enablement
+      description: With this call you can request enablement for disabled VINs in a fleet.
+      operationId: vehicle-management-request-vins-consent-1
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                VIN1:
+                  type: string
+                  description: 'Vehicle ID #1 quoted, "VIN1"'
+                VIN2:
+                  type: string
+                  description: 'Vehicle ID #2 quoted, "VIN2"'
+                VIN3:
+                  type: string
+                  description: 'Vehicle ID #3 quoted, "VIN3"'
+            examples:
+              Request Example:
+                value:
+                  vins:
+                  - VIN1
+                  - VIN2
+      responses:
+        '202':
+          description: '202'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"the following vin where not found under you workspace\",\n    \"vins\": [\n\
+                    \        \"VIN1\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: the following vin where not found under you workspace
+                  vins:
+                    type: array
+                    items:
+                      type: string
+                      example: VIN1
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"pending or consented vehicles cannot be consented\",\n    \"vins\": [\n  \
+                    \      \"VIN1\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: pending or consented vehicles cannot be consented
+                  vins:
+                    type: array
+                    items:
+                      type: string
+                      example: VIN1
+      deprecated: false
+      tags:
+      - EU
+  /v2/vehicle-management/vehicles/disable:
+    post:
+      summary: Vehicle Management - Disable VINs
+      description: With this call you can disable VINs in a fleet.
+      operationId: vehicle-management-revoke-vins
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                VIN1:
+                  type: string
+                  description: 'Vehicle ID #1 quoted, "VIN1"'
+                VIN2:
+                  type: string
+                  description: 'Vehicle ID #2 quoted, "VIN2"'
+                VIN3:
+                  type: string
+                  description: 'Vehicle ID #3 quoted, "VIN3"'
+            examples:
+              Request Example:
+                value:
+                  vins:
+                  - VIN1
+                  - VIN2
+      responses:
+        '202':
+          description: '202'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: ''
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n    \"message\": \"the following vin where not found under you workspace\",\n    \"vins\": [\n\
+                    \        \"VIN1\"\n    ]\n}"
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: the following vin where not found under you workspace
+                  vins:
+                    type: array
+                    items:
+                      type: string
+                      example: VIN1
+      deprecated: false
+      tags:
+      - EU
+  /v1/file-verification/<vin>/:
+    post:
+      summary: Vehicle ownership verification
+      description: Verify your ownership by uploading a vehicle ownership document.
+      operationId: vehicle-ownership-verification
+      parameters:
+      - name: vin
+        in: path
+        description: the vehicles identifier
+        schema:
+          type: string
+        required: true
+      - name: authorization
+        in: header
+        description: Workspace access token preceded by the token type string for OAuth2, "Bearer".
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                File:
+                  type: string
+                  description: the verification document, three types are supported [pdf, jpg, png]. file size shouldn't exceed
+                    4MB
+                  format: binary
+      responses:
+        '204':
+          description: '204'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: '400'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: '{}'
+              schema:
+                type: object
+                properties: {}
+      deprecated: false
+      tags:
+      - EU
+  /v1/vehicles/{vin}/status:
+    get:
+      summary: Vehicle Status v1
+      description: This call provides the latest status of a single vehicle in synchronical mode.
+      operationId: vehicle-status-for-fleets
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      - name: VIN
+        in: path
+        description: VIN of the vehicle quoted, "VIN"
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  “data”: {\n    “vehicle__description__otonomo_id”: “8ed1f064107153e0b72d5f0c0307b298”,\n  \
+                    \  “metadata__time__epoch”: 1595757406388,\n    “location__latitude__value”: 32.08855,\n    “location__longitude__value”:\
+                    \ 34.78247,\n    “vehicle__battery__percentage”: 12,\n    “vehicle__engine__temperature”: 92.3,\n    “mobility__heading__degree”:\
+                    \ 8.36,\n    “mobility__speed__value”: 0,\n    “vehicle__fuel__percentage”: 20.2,\n    “vehicle__odometer__value”:\
+                    \ 73875,\n    “vehicle__engine__rpm”: 900,\n    “mobility__fuel__avg_consumption”: 8,\n    “vehicle__engine__oil_percentage”:\
+                    \ 100,\n    “vehicle__description__vin”: “0TNM6MEM2LVGTTJE9”,\n    “manufacturer__fuel__type”: “Electric”,\n\
+                    \    “vehicle__tire__r1_pressure”: 32,\n    “vehicle__tire__l1_pressure”: 32,\n    “vehicle__tire__r2_pressure”:\
+                    \ 32,\n    “vehicle__tire__l2_pressure”: 32,\n    “vehicle__steering_wheel__degree”: 0,\n    “vehicle__steering_wheel__angular_velocity”:\
+                    \ 0,\n    “vehicle__hv_battery__level”: 20.2,\n    “mobility__acceleration__value”: 0.16995270216666\n\
+                    \  }\n}"
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+  /v2/vehicles/{vin}/status:
+    get:
+      summary: Vehicle Status v2 (Time Per Attribute)
+      description: This call provides the latest status of a single vehicle in synchronical mode.When using **Vehicle Status
+        v2 (Time Per Attribute)** the output will contain the exact timestamp as it was received by Otonomo for each attribute
+        and not aggregated as in Vehicle Status v1.
+      operationId: vehicle-status-time-per-attribute
+      parameters:
+      - name: authorization
+        in: header
+        description: '[Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the
+          token type string for OAuth2, "Bearer".'
+        required: true
+        schema:
+          type: string
+          default: Bearer bNiIsInR5cCXr_si0C
+      - name: VIN
+        in: path
+        description: VIN of the vehicle quoted, "VIN"
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: '200'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n  \"data\": [\n    {\n      \"name\": \"vehicle__identification__vin\",\n      \"value\": \"\
+                    1GXXXXXXXXXXXXXXXX\",\n      \"time\": null\n    },\n    {\n      \"name\": \"location__latitude__value\"\
+                    ,\n      \"value\": 46.224865,\n      \"time\": 1661526202764\n    },\n    {\n      \"name\": \"location__longitude__value\"\
+                    ,\n      \"value\": 7.316541,\n      \"time\": 1661526202764\n    },\n    {\n      \"name\": \"mobility__heading__angle\"\
+                    ,\n      \"value\": 162,\n      \"time\": 1661526202764\n    },\n    {\n      \"name\": \"mobility__speed__value\"\
+                    ,\n      \"value\": 77.1700644,\n      \"time\": 1661437329858\n    },\n    {\n      \"name\": \"vehicle__fuel__level\"\
+                    ,\n      \"value\": 70.10892,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"mobility__odometer__value\"\
+                    ,\n      \"value\": 7157,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"vehicle__identification__vin\"\
+                    ,\n      \"value\": \"<vin>\",\n      \"time\": null\n    },\n    {\n      \"name\": \"vehicle__tire__1_2_pressure\"\
+                    ,\n      \"value\": 37.129728,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"vehicle__tire__1_1_pressure\"\
+                    ,\n      \"value\": 38.290032,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"vehicle__tire__2_2_pressure\"\
+                    ,\n      \"value\": 39.595374,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"vehicle__tire__2_1_pressure\"\
+                    ,\n      \"value\": 37.564842,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"vehicle__battery__voltage\"\
+                    ,\n      \"value\": 11.9375,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"location__altitude__value\"\
+                    ,\n      \"value\": 140.208,\n      \"time\": 1661526202764\n    },\n    {\n      \"name\": \"vehicle__ignition__status\"\
+                    ,\n      \"value\": 0,\n      \"time\": 1661614552000\n    },\n    {\n      \"name\": \"vehicle__abs__status\"\
+                    ,\n      \"value\": 1,\n      \"time\": 1661525159645\n    }\n  ]\n}"
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          example: vehicle__identification__vin
+                        value:
+                          type: string
+                          example: 1GXXXXXXXXXXXXXXXX
+                        time: {}
+        '403':
+          description: '403'
+          content:
+            application/json:
+              examples:
+                Result:
+                  value: "{\n\t\"detail\": \"You do not have permission to perform this action.\"\n}"
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                    example: You do not have permission to perform this action.
+      deprecated: false
+      tags:
+      - EU
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: 'OAuth2 client-credentials. Obtain a Bearer token from POST /v1/oauth/token/ then send it as Authorization:
+        Bearer <token>.'
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.otonomo.io/v1/oauth/token/
+          scopes: {}

@@ -1,0 +1,65 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://docs.otonomo.io/reference and the per-endpoint OpenAPI 3.1 definitions
+  embedded there — the cross-cutting request/response conventions of the Otonomo
+  Fleet API.
+description: >-
+  How the Otonomo Fleet API behaves across operations: OAuth2 client-credentials
+  auth, Bearer token usage, US/EU regional hosts, the synchronous-vs-asynchronous
+  data model (immediate vehicle status vs. request-id report generation), the
+  error envelope, and rate-limit signaling.
+base_url:
+  us: https://api.otonomo.io
+  eu: https://api.eu.otonomo.io
+api_style: REST over HTTPS, JSON responses; token request is form-encoded (application/x-www-form-urlencoded)
+authentication:
+  scheme: OAuth2 client-credentials -> Bearer token
+  token_endpoint: POST /v1/oauth/token/
+  token_request: form body client_id, client_secret, grant_type=client_credentials, service (service ID)
+  token_types: [Fleet/Workspace access token, Fleet/Workspace EU access token, General access token, Driver access token]
+  token_ttl_seconds: 86400
+  usage: 'Authorization: Bearer <access_token>'
+  detail: authentication/otonomo-authentication.yml
+  docs: https://docs.otonomo.io/docs/token-apis
+regions:
+  model: Separate US and EU data regions with distinct hosts and, in some cases, distinct token endpoints and paths.
+  us_host: https://api.otonomo.io
+  eu_host: https://api.eu.otonomo.io
+async_reports:
+  description: >-
+    Bulk/historical operations (bulk vehicle status, fleet points, trips, trips
+    points) are asynchronous: the request returns a request/report id; poll
+    "Get Report Status" with that id until status is "Completed", then download
+    the generated CSV from the returned link.
+  request_id_field: request id (returned by the report-generating endpoint)
+  poll_operation: Get Report Status (/v1/personal/reports/requests/{Request_id})
+  statuses: [Ongoing, Completed, Expired]
+  retention: Reports expire 30 days after generation.
+idempotency:
+  supported: false
+  note: >-
+    Otonomo does not document an idempotency-key mechanism. Report-generating
+    calls create a new request id per call.
+pagination:
+  style: none-documented
+  note: >-
+    No cursor/offset pagination is documented for the reference endpoints;
+    single-vehicle status is a point read, bulk operations use the async report
+    pattern, and the attribute explorer filters via query parameters.
+metadata:
+  note: >-
+    Vehicle status payloads use a namespaced double-underscore attribute
+    convention (e.g. vehicle__battery__percentage, location__latitude__value,
+    metadata__time__epoch).
+error_envelope:
+  shape: 'flat JSON object; permission/validation errors carry a `detail` string'
+  detail: errors/otonomo-error-codes.yml
+versioning:
+  scheme: uri-path
+  note: /v1 base; resource-level v1 and v2 variants (e.g. Vehicle Status v1 / v2 Time-Per-Attribute) coexist.
+  detail: lifecycle/otonomo-lifecycle.yml
+rate_limits:
+  signaled: true
+  docs: https://docs.otonomo.io/docs/api-rate-limits
+  detail: rate-limits/otonomo-rate-limits.yml

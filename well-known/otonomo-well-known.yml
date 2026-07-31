@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: probed
+source: live probes of /.well-known/* on the Otonomo API and docs hosts
+description: >-
+  No /.well-known discovery documents are published. API hosts return
+  Cloudflare 530 (origin error, endpoints require auth) and the docs host
+  returns 404 for every probed path. Recorded for auditability; no WellKnown
+  pointer is emitted.
+hosts:
+- host: https://api.otonomo.io
+  documents:
+  - {path: /.well-known/security.txt, status: 530}
+  - {path: /.well-known/openid-configuration, status: 530}
+  - {path: /.well-known/oauth-authorization-server, status: 530}
+  - {path: /.well-known/api-catalog, status: 530}
+  - {path: /.well-known/ai-plugin.json, status: 530}
+- host: https://api.eu.otonomo.io
+  documents:
+  - {path: /.well-known/security.txt, status: 530}
+  - {path: /.well-known/openid-configuration, status: 530}
+  - {path: /.well-known/oauth-authorization-server, status: 530}
+- host: https://docs.otonomo.io
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}

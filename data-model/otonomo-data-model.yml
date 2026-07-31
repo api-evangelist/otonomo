@@ -1,0 +1,46 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  Derived from the reconstructed Otonomo Fleet API OpenAPI (openapi/otonomo-fleet-openapi.yml)
+  path/identifier structure and response payloads. Otonomo publishes no formal object
+  reference; id domains/prefixes below are observed from the reference, not an authoritative schema.
+description: >-
+  Entity-relationship model of the Otonomo Fleet connected-vehicle data API.
+entities:
+- name: Vehicle
+  identifier: vin
+  id_notes: Standard 17-char VIN; also carries an Otonomo-internal id (vehicle__description__otonomo_id) in status payloads.
+  description: A connected vehicle onboarded to a Workspace/fleet. Source of status, location, telematics and connectivity.
+  operations: [vehicle-status-for-fleets, vehicle-status-time-per-attribute, connectivity-check, vehicle-management-get-all-vins, vehicle-management-upload-new-vin, vehicle-management-remove-vins, vehicle-management-request-vins-consent-1, vehicle-management-revoke-vins, vehicle-ownership-verification]
+- name: Workspace
+  identifier: service
+  id_notes: Service ID selected at token time; scopes a token to an aggregate or personal fleet-data Workspace (US) or EU Workspace.
+  description: The account/fleet scope that owns a set of Vehicles and against which tokens are issued.
+- name: Report
+  identifier: Request_id
+  description: An asynchronous data-generation job (bulk status, fleet points, trips, trips points). Polled via Get Report Status; yields a CSV; expires after 30 days.
+  operations: [bulk-vehicles-status-for-fleets-eu, fleet-points-historical-data, personal-trips-data-historical, fleet-trips-points, get-report-status-eu]
+- name: AttributeExplorer
+  identifier: null
+  description: Query surface returning the vehicle attributes available for given filter parameters.
+  operations: [attribute-explorer-1]
+- name: EventRule
+  identifier: null
+  description: A near-real-time rule over vehicle attributes that pushes matching events to a configured callback (see asyncapi/otonomo-events-webhooks.yml). Not present in the reconstructed OpenAPI.
+relationships:
+- from: Vehicle
+  to: Workspace
+  type: belongs_to
+  via: service
+- from: Report
+  to: Workspace
+  type: belongs_to
+  via: service
+- from: Report
+  to: Vehicle
+  type: has_many
+  via: vin
+- from: EventRule
+  to: Vehicle
+  type: has_many
+  via: vin

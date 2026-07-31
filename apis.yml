@@ -1,27 +1,150 @@
 aid: otonomo
 name: Otonomo
-description: 'Otonomo is a company surfaced as a portfolio company of bessemer-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: unknown. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Otonomo operates a connected-vehicle data platform that aggregates, normalizes
+  and delivers telematics and mobility data from millions of connected cars to
+  fleets, insurers, cities and mobility developers. Its Fleet ("Personal Data for
+  Fleets") API exposes OAuth2-secured endpoints for vehicle onboarding (VIN
+  upload / enablement / consent), near-real-time vehicle status, historical fleet
+  points and trips reporting, connectivity checks, an attribute explorer, custom
+  event rules with callbacks, and a streaming interface — across separate US and
+  EU data regions. Otonomo was acquired by Urgently (Urgent.ly) in 2023; the
+  connected-car Fleet data API remains operational and documented on ReadMe at
+  docs.otonomo.io. Originally surfaced as a Bessemer Venture Partners portfolio
+  company and enriched from its live developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/otonomo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - bessemer-venture-partners
-x-tier: stub
-x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://otonomo.io/
 tags:
 - Company
-- Unknown
-apis: []
+- Connected Vehicles
+- Automotive
+- Fleet Management
+- Telematics
+- Vehicle Data
+- Mobility
+- IoT
+- Location
+- Connected Car
+apis:
+- aid: otonomo:otonomo-eu-api
+  name: Otonomo EU API
+  description: The EU API from Otonomo — 15 operation(s) for eu.
+  humanURL: https://docs.otonomo.io/reference
+  baseURL: https://api.otonomo.io/v1/
+  tags:
+  - EU
+  properties:
+  - type: OpenAPI
+    url: openapi/otonomo-eu-api-openapi.yml
+  - type: APIReference
+    url: https://docs.otonomo.io/reference
+  - type: Documentation
+    url: https://docs.otonomo.io/
+  - type: Authentication
+    url: authentication/otonomo-authentication.yml
+  - type: Authentication
+    url: https://docs.otonomo.io/docs/token-apis
+  - type: LLMsTxt
+    url: llms/otonomo-llms.txt
+  - type: Conventions
+    url: conventions/otonomo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/otonomo-error-codes.yml
+  - type: RateLimits
+    url: rate-limits/otonomo-rate-limits.yml
+  - type: Lifecycle
+    url: lifecycle/otonomo-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/otonomo-sandbox.yml
+  - type: Webhooks
+    url: asyncapi/otonomo-events-webhooks.yml
+  - type: Conformance
+    url: conformance/otonomo-conformance.yml
+  - type: DataModel
+    url: data-model/otonomo-data-model.yml
+- aid: otonomo:otonomo-us-api
+  name: Otonomo US API
+  description: The US API from Otonomo — 2 operation(s) for us.
+  humanURL: https://docs.otonomo.io/reference
+  baseURL: https://api.otonomo.io/v1/
+  tags:
+  - US
+  properties:
+  - type: OpenAPI
+    url: openapi/otonomo-us-api-openapi.yml
+  - type: APIReference
+    url: https://docs.otonomo.io/reference
+  - type: Documentation
+    url: https://docs.otonomo.io/
+  - type: Authentication
+    url: authentication/otonomo-authentication.yml
+  - type: Authentication
+    url: https://docs.otonomo.io/docs/token-apis
+  - type: LLMsTxt
+    url: llms/otonomo-llms.txt
+  - type: Conventions
+    url: conventions/otonomo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/otonomo-error-codes.yml
+  - type: RateLimits
+    url: rate-limits/otonomo-rate-limits.yml
+  - type: Lifecycle
+    url: lifecycle/otonomo-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/otonomo-sandbox.yml
+  - type: Webhooks
+    url: asyncapi/otonomo-events-webhooks.yml
+  - type: Conformance
+    url: conformance/otonomo-conformance.yml
+  - type: DataModel
+    url: data-model/otonomo-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/otonomo-agentic-access.yml
+- type: OAuthScopes
+  url: scopes/otonomo-scopes.yml
 - type: Website
   url: https://otonomo.io/
+- type: Documentation
+  url: https://docs.otonomo.io/
+- type: APIReference
+  url: https://docs.otonomo.io/reference
+- type: GettingStarted
+  url: https://docs.otonomo.io/docs/consumption-methods
+- type: Support
+  url: mailto:support@otonomo.io
+- type: Postman
+  url: https://docs.otonomo.io/docs/postman-collection-get-car-status
+- type: Packages
+  url: packages/otonomo-packages.yml
+- type: DomainSecurity
+  url: security/otonomo-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 22
+  pass: local-v1

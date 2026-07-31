@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://docs.otonomo.io/docs/custom-event-rules,
+  https://docs.otonomo.io/docs/create-an-event-rule,
+  https://docs.otonomo.io/docs/streaming-interface-configuration — Otonomo
+  documents a near-real-time event/webhook surface (Custom Event Rules with
+  callback delivery) and a streaming interface, but publishes no AsyncAPI
+  document. Captured as a webhook catalog (type: Webhooks); no AsyncAPI is
+  fabricated.
+spec_type: Webhooks
+description: >-
+  Otonomo delivers near-real-time vehicle events to a customer-configured
+  callback (webhook) endpoint via "Custom Event Rules", and offers a continuous
+  "Streaming Interface" for high-volume data delivery. Available in both US and
+  EU regions.
+webhooks:
+  delivery:
+    mechanism: HTTP callback (webhook)
+    configuration: >-
+      Each Event Rule is configured with a callback URL to which Otonomo POSTs
+      matching events near real time. Event rules are created and managed via
+      the Custom Event Rules API (EU and US variants).
+    docs:
+    - https://docs.otonomo.io/docs/custom-event-rules
+    - https://docs.otonomo.io/docs/create-an-event-rule
+    - https://docs.otonomo.io/docs/custom-event-rule-operators
+    - https://docs.otonomo.io/docs/custom-event-rule-use-cases
+  event_rules:
+    description: >-
+      An Event Rule identifies a meaningful condition over vehicle telemetry
+      (e.g. a vehicle exceeding a speed threshold) using a rule name, a
+      description, and operators over vehicle attributes. When the condition is
+      met the event is pushed to the configured callback.
+    composed_of: [event rule name, description, operators over attributes]
+    example_use_cases: [speeding / harsh-driving alerts, geofence events]
+streaming:
+  name: Streaming Interface
+  description: >-
+    Continuous streaming delivery of fleet vehicle data as an alternative to
+    synchronous polling or asynchronous report generation.
+  docs: https://docs.otonomo.io/docs/streaming-interface-configuration
+regions: [US, EU]

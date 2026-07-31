@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://docs.otonomo.io/docs/api-rate-limits — Otonomo publishes a dedicated
+  "API Rate Limits" reference, linked from every endpoint. The concrete numeric
+  limits are rendered client-side in the ReadMe docs and were not machine-readable
+  at capture time, so no fabricated numbers are recorded; the signaled surface and
+  429 behavior are captured.
+description: >-
+  The Otonomo Fleet API enforces documented rate limits and returns HTTP 429 when
+  exceeded. Numeric thresholds are published on the rate-limits reference page.
+rate_limits:
+  documented: true
+  docs: https://docs.otonomo.io/docs/api-rate-limits
+  exceeded_status: 429
+  limits: []
+  note: Numeric per-endpoint limits are published at the docs URL above (not captured verbatim; client-side rendered).

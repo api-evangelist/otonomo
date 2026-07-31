@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: derived
+source: >-
+  Derived from the Otonomo Fleet API reference (per-endpoint OpenAPI 3.1
+  definitions embedded on docs.otonomo.io) and the documented authorization
+  model (OAuth2 client-credentials). No published compliance/certification
+  program was found on the (currently offline) otonomo.io corporate site, so no
+  Compliance pointer is emitted.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Token endpoint POST /v1/oauth/token/ issues Bearer tokens via the OAuth2
+    client-credentials grant (grant_type=client_credentials); reference specs
+    declare a clientCredentials securityScheme.
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: grant_type=client_credentials with client_id/client_secret/service.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Error responses use a plain JSON envelope with a `detail` string
+    (e.g. 403 {"detail": "You do not have permission to perform this action."}),
+    not application/problem+json.
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: 'Access token passed as `Authorization: Bearer <token>` header.'
+- id: openapi-3-1
+  conforms: true
+  evidence: Each API-reference endpoint is backed by an OpenAPI 3.1.0 definition.
+- id: fhir-r4
+  conforms: false
+- id: scim2
+  conforms: false
+- id: fapi
+  conforms: false
+- id: odata
+  conforms: false

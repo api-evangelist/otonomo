@@ -1,0 +1,85 @@
+# otonomo-docs Documentation
+
+> Otonomo's API documentation.
+
+## Guides
+- [Consumption Methods](https://otonomo-docs.readme.io/docs/consumption-methods.md)
+- [How to find Client ID, Client Secret and Service ID](https://otonomo-docs.readme.io/docs/q-a.md)
+- [Overview](https://otonomo-docs.readme.io/docs/overview-personal-data-for-fleets.md)
+- [Vehicle Management](https://otonomo-docs.readme.io/docs/vehicle-management-for-fleets.md)
+- [Demo Vehicles and Simulator](https://otonomo-docs.readme.io/docs/vehicle-simulator.md)
+- [Data Report Generation](https://otonomo-docs.readme.io/docs/fleet-data-report-generation.md)
+- [Streaming Interface Configuration](https://otonomo-docs.readme.io/docs/streaming-interface-configuration.md)
+- [Custom Event Rule](https://otonomo-docs.readme.io/docs/custom-event-rules.md): Otonomo now provides the ability to identify meaningful events by defining Event Rules on Otonomo's platform.
+- [Create an Event Rule](https://otonomo-docs.readme.io/docs/create-an-event-rule.md): Create an event rule to identify meaningful events near real-time on Otonomo's platform.  The ability to add events such as vehicles that are speeding keeps fleet managers updated on  critical driving events. An event rule is comprised of the Event Rule, or the name of the event,  and a description of that event.
+- [Custom Event Rule: Use Cases](https://otonomo-docs.readme.io/docs/custom-event-rule-use-cases.md)
+- [Custom Event Rule: Operators](https://otonomo-docs.readme.io/docs/custom-event-rule-operators.md): Otonomo now provides the ability to identify meaningful events by defining Event Rules on Otonomo's platform.
+- [Attribute Explorer](https://otonomo-docs.readme.io/docs/attribute-explorer.md)
+- [Data Usage](https://otonomo-docs.readme.io/docs/fleet-data-usage.md)
+- [Private Ownership-Obtaining Driver Consent](https://otonomo-docs.readme.io/docs/obtaining-driver-consent.md)
+- [Postman Collection - Car Status](https://otonomo-docs.readme.io/docs/postman-collection-get-car-status.md)
+- [Authorization](https://otonomo-docs.readme.io/docs/token-apis.md)
+- [Error Codes](https://otonomo-docs.readme.io/docs/error-codes.md)
+- [API Rate Limits](https://otonomo-docs.readme.io/docs/api-rate-limits.md)
+- [Adding Users to an Account](https://otonomo-docs.readme.io/docs/users-and-invitations.md)
+- [Glossary](https://otonomo-docs.readme.io/docs/glossary.md)
+- [Country Codes](https://otonomo-docs.readme.io/docs/iso-alpha-2-alpha-3-country-codes.md)
+- [Supported browsers](https://otonomo-docs.readme.io/docs/supported-browsers.md)
+
+## API Reference
+- [Fleet (Workspace) Access Token](https://otonomo-docs.readme.io/reference/service-access-token.md): This token is used to access information pertaining to an aggregate Workspace or a personal  fleet data Workspace in the US.
+- [Fleet (Workspace) Access Token - EU](https://otonomo-docs.readme.io/reference/workspace-access-token-eu.md): This token is used to access information pertaining to a personal  fleet data Workspace in  Europe.
+- [General Access Token](https://otonomo-docs.readme.io/reference/general-access-token.md): This token is used to access information pertaining to the entire account
+- [Driver Access Token](https://otonomo-docs.readme.io/reference/driver-access-token.md): This token is used to access driver-specific data.
+- [Connectivity Check](https://otonomo-docs.readme.io/reference/connectivity-check.md): This call provides the ability to verify a vehicle's connectivity capabilities.
+- [Vehicle Management - Upload new VINs](https://otonomo-docs.readme.io/reference/vehicle-management-upload-new-vin.md): With this call you can upload new VINs to a specific fleet. you can add the following static data to each vehicle -  one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity
+- [Vehicle Management - Request VIN Enablement](https://otonomo-docs.readme.io/reference/vehicle-management-request-vins-consent-1.md): With this call you can request enablement for disabled VINs in a fleet.
+- [Vehicle Management - Disable VINs](https://otonomo-docs.readme.io/reference/vehicle-management-revoke-vins.md): With this call you can disable VINs in a fleet.
+- [Vehicle Management - Delete VINs](https://otonomo-docs.readme.io/reference/vehicle-management-remove-vins.md): With this call you can delete existing VINs from a fleet.
+- [Vehicle Management - Get All VINs](https://otonomo-docs.readme.io/reference/vehicle-management-get-all-vins.md): This call provides the latest status of all existing VINs of a specific Workspace in the Vehicle Management. [Click here for the statuses list](https://docs.otonomo.io/docs/vehicle-management-for-fleets)
+- [Vehicle Status v1](https://otonomo-docs.readme.io/reference/vehicle-status-for-fleets.md): This call provides the latest status of a single vehicle in synchronical mode.
+- [Vehicle Status v2 (Time Per Attribute)](https://otonomo-docs.readme.io/reference/vehicle-status-time-per-attribute.md): This call provides the latest status of a single vehicle in synchronical mode.When using **Vehicle Status v2 (Time Per Attribute)** the output will contain the exact timestamp as it was received by Otonomo for each attribute and not aggregated as in Vehicle Status v1.
+- [Vehicle Status - Bulk Report](https://otonomo-docs.readme.io/reference/bulk-vehicles-status-for-fleets-eu.md): This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu).
+- [Fleet Points Data](https://otonomo-docs.readme.io/reference/fleet-points-historical-data.md): This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). premium feature - to unlock please contact support@otonomo.io
+- [Fleet Trips Data](https://otonomo-docs.readme.io/reference/personal-trips-data-historical.md): This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). This is a premium feature - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within the configured period.The report includes any trip that has started at, ended at or passed through the selected geography  (Country, State, City, or Polygon).
+- [Fleet Trips Points](https://otonomo-docs.readme.io/reference/fleet-trips-points.md): This call provides Fleet Trips Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). The report includes any trip points that have a start time and end time within the configured period.
+- [Get Report Status](https://otonomo-docs.readme.io/reference/get-report-status-eu.md): You can obtain the completion status of a previous request. To specify which request you want to retrieve, use the request ID returned by the corresponding report endpoint. Status:Ongoing: The request is still in the process of being rendered. Completed: The request is ready. Expired: The report was generated over 30 days ago and is now expired. Once the status is “completed”, a link to the generated CSV is provided in the response section.
+- [Attribute Explorer](https://otonomo-docs.readme.io/reference/attribute-explorer-1.md): This call provides the ability of attribute exploration within the Otonomo platform.  The response includes the relevant attributes according to the passed query parameters.
+- [Vehicle ownership verification](https://otonomo-docs.readme.io/reference/vehicle-ownership-verification.md): Verify your ownership by uploading a vehicle ownership document.
+- [Connectivity Check (US)](https://otonomo-docs.readme.io/reference/connectivity-check-us.md): This call provides the ability to verify a vehicle's connectivity capabilities.
+- [Vehicle Management - Upload new VINs](https://otonomo-docs.readme.io/reference/us-vehicle-management-upload-new-vins.md): With this call you can upload new VINs to a specific fleet. you can add the following static data to each vehicle -  one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity
+- [Vehicle Management - Request VIN Enablement](https://otonomo-docs.readme.io/reference/vehicle-management-request-vins-consent.md): With this call you can request enablement for disabled VINs in a fleet.
+- [Vehicle Management - Disable VINs](https://otonomo-docs.readme.io/reference/us-vehicle-management-revoke-vins.md): With this call you can disable VINs in a fleet.
+- [Vehicle Management - Delete VINs](https://otonomo-docs.readme.io/reference/us-vehicle-management-delete-vins.md): With this call you can delete existing VINs from a fleet.
+- [Vehicle Management - Get All VINs](https://otonomo-docs.readme.io/reference/us-vehicle-management-get-all-vins.md): This call provides the latest status of all existing VINs of a specific fleet.
+- [Vehicle Status v1](https://otonomo-docs.readme.io/reference/vehicle-status-for-fleets-us.md): This call provides the latest status of a single vehicle in synchronical mode.
+- [Vehicle Status v2 (Time Per Attribute)](https://otonomo-docs.readme.io/reference/vehicle-status-time-per-attribute-us.md): This call provides the latest status of a single vehicle in synchronical mode.When using **Vehicle Status (Time Per Attribute)** the output will contain the exact timestamp as it received at the Otonomo end, for each attribute and not aggregated as in the Vehicle Status v1 call.
+- [Vehicle Status - Bulk Report](https://otonomo-docs.readme.io/reference/bulk-vehicles-status-for-fleets-us.md): This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status).
+- [Fleet Points Data US](https://otonomo-docs.readme.io/reference/personal-points-data-historical-us.md): This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). premium feature - to unlock please contact support@otonomo.io
+- [Fleet Trips Data US](https://otonomo-docs.readme.io/reference/fleet-trips-data-historical-us.md): This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). This is a premium feature - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within the configured period.The report includes any trip that has started at, ended at or passed through the selected geography  (Country, State, City, or Polygon).
+- [Fleet Trips Points (US)](https://otonomo-docs.readme.io/reference/personal-trips-points-us.md): This call provides Fleet Trips Points historical data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status). The report includes any trip points that have a start time and end time within the configured period.
+- [Get Report Status](https://otonomo-docs.readme.io/reference/get-report-status-us.md): You can obtain the completion status of a previous request. To specify which request you want to retrieve, use the request ID returned by the corresponding report endpoint. Status:Ongoing: The request is still in the process of being rendered. Completed: The request is ready. Expired: The report was generated over 30 days ago and is now expired. Once the status is “completed”, a link to the generated CSV is provided in the response section.
+- [Attribute Explorer (US)](https://otonomo-docs.readme.io/reference/attribute-explorer-us.md): This call provides the ability of attribute exploration within the Otonomo platform.  The response includes the relevant attributes according to the passed query parameters.
+- [Vehicle ownership verification](https://otonomo-docs.readme.io/reference/vehicle-ownership-verification-us.md): Verify your ownership by uploading a vehicle ownership document.
+- [Create Event Rule](https://otonomo-docs.readme.io/reference/create-event-rule.md): Allows you to create and define a Rule and its logic (based on the combination of Operators and Conditions) for future events creation within Otonomo's platform.  When the conditions are met an event will be triggered and sent to the configured callback URL.
+- [Get Rules](https://otonomo-docs.readme.io/reference/get-rules.md): Allows you to fetch all existing Rules and their logic as defined for future events creation within Otonomo's platform.
+- [Get Rule](https://otonomo-docs.readme.io/reference/get-rule.md): Allows you to fetch a certain Rule and its logic as defined for future events creation within Otonomo's platform.
+- [Update Event Rule](https://otonomo-docs.readme.io/reference/update-event-rule.md): Allows you to update a certain Rule and redefine its logic and properties for future events creation within Otonomo's platform.
+- [Remove Event Rule](https://otonomo-docs.readme.io/reference/remove-event-rule.md): Allows you to remove a certain Rule and its logic and eliminate future events creation within Otonomo's platform.
+- [Create Callback](https://otonomo-docs.readme.io/reference/create-callback.md): A Callback URL is the destination endpoint for which to send the triggered events for all defined Rules within Otonomo's platform.   When an event is triggered, it is being sent immediately (as an HTTP POST request) to the specified Callback URL, So the client doesn't need to check repeatedly if new data is available.
+- [Get Callback](https://otonomo-docs.readme.io/reference/get-callback.md): Allows you to fetch the properties of a configured Callback URL.
+- [Update Callback](https://otonomo-docs.readme.io/reference/update-callback.md): Allows you to update the properties of a configured Callback URL.
+- [Remove Callback](https://otonomo-docs.readme.io/reference/remove-callback.md): Allows you to remove a configured Callback URL.
+- [Create Event Rule (US)](https://otonomo-docs.readme.io/reference/create-event-rule-us.md): Allows you to create and define a Rule and its logic (based on the combination of Operators and Conditions) for future events creation within Otonomo's platform.  When the conditions are met an event will be triggered and sent to the configured callback URL.
+- [Get Rules (US)](https://otonomo-docs.readme.io/reference/get-rules-us.md): Allows you to fetch all existing Rules and their logic as defined for future events creation within Otonomo's platform.
+- [Get Rule (US)](https://otonomo-docs.readme.io/reference/get-rule-us.md): Allows you to fetch all existing Rules and their logic as defined for future events creation within Otonomo's platform.
+- [Update Event Rule (US)](https://otonomo-docs.readme.io/reference/update-event-rule-us.md): Allows you to update a certain Rule and redefine its logic and properties for future events creation within Otonomo's platform.
+- [Remove Event Rule (US)](https://otonomo-docs.readme.io/reference/remove-event-rule-us.md): Allows you to remove a certain Rule and its logic and eliminate future events creation within Otonomo's platform.
+- [Create Callback (US)](https://otonomo-docs.readme.io/reference/create-callback-us.md): A Callback URL is the destination endpoint for which to send the triggered events for all defined Rules within Otonomo's platform.   When an event is triggered, it is being sent immediately (as an HTTP POST request) to the specified Callback URL, So the client doesn't need to check repeatedly if new data is available.
+- [Get Callback (US)](https://otonomo-docs.readme.io/reference/get-callback-us.md): Allows you to fetch the properties of a configured Callback URL.
+- [Update Callback (US)](https://otonomo-docs.readme.io/reference/update-callback-us.md): Allows you to update the properties of a configured Callback URL.
+- [Remove Callback (US)](https://otonomo-docs.readme.io/reference/remove-callback-us.md): Allows you to remove a configured Callback URL.
+
+## Changelog
+- [Recent updates](https://otonomo-docs.readme.io/changelog/recent-updates.md)
+- [API v1 release](https://otonomo-docs.readme.io/changelog/api-v1-release.md)

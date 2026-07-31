@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://docs.otonomo.io/reference — versioning observed from the live Fleet
+  API reference. The corporate otonomo.io site is currently offline (connection
+  timeout), so no status page, SLA, or formal deprecation policy could be
+  located. Absence recorded honestly.
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: >-
+    Endpoints are namespaced under /v1/. Individual data operations expose a
+    resource-level v1 and v2 (e.g. Vehicle Status v1 and Vehicle Status v2
+    "Time Per Attribute"), documented side by side as coexisting variants.
+  docs: https://docs.otonomo.io/reference
+regions:
+  note: >-
+    Separate US and EU data regions with distinct API hosts —
+    US: https://api.otonomo.io, EU: https://api.eu.otonomo.io.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No formal deprecation/sunset policy or RFC 8594 Sunset/Deprecation header
+    support was found in the reference. v1/v2 variants coexist rather than v1
+    being deprecated.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+report_retention:
+  note: >-
+    Asynchronous data reports (points/trips/bulk status) expire 30 days after
+    generation (Get Report Status returns an "Expired" state past that window).
+deprecated_operations: []

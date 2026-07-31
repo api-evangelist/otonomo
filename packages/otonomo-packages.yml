@@ -1,0 +1,22 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://docs.otonomo.io/ — searched the Otonomo developer documentation and
+  the public package registries (npm, PyPI, Maven Central, NuGet, pkg.go.dev,
+  RubyGems, Packagist, crates.io) for first-party Otonomo client libraries.
+  Otonomo publishes no official server-side SDKs; the only first-party developer
+  package it ships is a Postman collection. No SDKs pointer is emitted.
+description: >-
+  Otonomo does not publish official client SDKs on any public package registry.
+  The single first-party developer artifact is a Postman collection for the
+  Fleet vehicle-status flow, referenced from the docs.
+packages:
+- language: http
+  registry: postman
+  name: Otonomo Fleet - Car Status
+  url: https://docs.otonomo.io/docs/postman-collection-get-car-status
+  install: Import the Postman collection linked from the Otonomo docs.
+  official: true
+  note: >-
+    Postman collection for the Get Car Status flow. Otonomo publishes no
+    language SDKs on npm/PyPI/Maven/NuGet/Go/RubyGems/Packagist/crates.io.

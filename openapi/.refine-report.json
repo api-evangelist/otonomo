@@ -1,0 +1,16 @@
+{
+  "provider": "otonomo",
+  "sources": [
+    "otonomo-eu-api-openapi.yml",
+    "otonomo-us-api-openapi.yml"
+  ],
+  "outputs": [
+    "otonomo-eu-api-openapi.yml",
+    "otonomo-us-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
