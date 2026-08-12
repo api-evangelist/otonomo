@@ -123,6 +123,12 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgentSkill
+  url: skills/otonomo-check-vehicle-connectivity.md
+- type: MCPServer
+  url: mcp/otonomo-mcp.yml
+- type: Overlay
+  url: overlays/otonomo-fleet-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/otonomo-agentic-access.yml
 - type: OAuthScopes
