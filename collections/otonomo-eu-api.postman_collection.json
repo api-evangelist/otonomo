@@ -1,0 +1,2711 @@
+{
+  "item": [
+    {
+      "id": "83aacb4c-f9ef-4e39-97e4-5ae6e621af70",
+      "name": "EU",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3915b0b7-b88c-40a6-a6d3-16b58804ebe2",
+          "name": "Attribute Explorer",
+          "request": {
+            "name": "Attribute Explorer",
+            "description": {
+              "content": "This call provides the ability of attribute exploration within the Otonomo platform. \nThe response includes the relevant attributes according to the passed query parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vehicle_details_attributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "model",
+                  "value": "<string>",
+                  "description": "The result can be filtered by the 'model' query param, to include only the specified model"
+                },
+                {
+                  "disabled": false,
+                  "key": "make",
+                  "value": "<string>",
+                  "description": "The result can be filtered by the 'make' query param, to include only the specified make"
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<string>",
+                  "description": "The result can be filtered by the 'year' query param, to include only the specified year"
+                },
+                {
+                  "disabled": false,
+                  "key": "engine_type",
+                  "value": "<string>",
+                  "description": "The result can be filtered by the 'engine_type' query param, to include only the specified engine_type"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "A function of pagination is implemented, the specified page number (as a query param) will be returned with its content."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "100",
+                  "description": "A function of page size is implemented, the specified size is related to the number of Json objects that are being returned (min value=1 | max value=1197 | is not specified=100)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b3afc6b-e79f-4d13-bf6c-d976213e9d89",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicle_details_attributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "model",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "make",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "engine_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "100"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [General Access Token](https://docs.otonomo.io/reference/general-access-token) preceded by the token type string for \"OAuth2\", \"Bearer\".",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"count\\\": 73,\\n    \\\"next\\\": null,\\n    \\\"previous\\\": null,\\n    \\\"results\\\": [\\n        {\\n            \\\"id\\\": 1195,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__brake__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh brake event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1196,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"deprecated_vehicle__provider__oem\\\",\\n                \\\"description\\\": \\\"The name of the Original Equipment Manufacturer\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"string\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1197,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__identification__vin\\\",\\n                \\\"description\\\": \\\"The vehicle's identification number\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1198,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__acceleration__lateral\\\",\\n                \\\"description\\\": \\\"The right (positive value) -and-left (negative value) acceleration of a vehicle in g.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"g\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1199,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__acceleration__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh acceleration event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1200,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__identification__otonomo_id\\\",\\n                \\\"description\\\": \\\"A unique vehicle's identification number created by Otonomo\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1201,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__odometer__value\\\",\\n                \\\"description\\\": \\\"The accumulated distance traveled by a vehicle in km\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"km\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1202,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__acceleration__value\\\",\\n                \\\"description\\\": \\\"The forward (positive value) -and-backward (negative value) acceleration of a vehicle in g.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"g\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1203,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__cornering__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh cornering event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1204,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"location__longitude__value\\\",\\n                \\\"description\\\": \\\"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"deg\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1205,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"metadata__provider__name\\\",\\n                \\\"description\\\": \\\"The name of the provider\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1206,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"metadata__time__epoch\\\",\\n                \\\"description\\\": \\\"The exact time of a given point (UTC) in Epoch format.\\\",\\n                \\\"type\\\": \\\"Long\\\",\\n                \\\"unit_name\\\": \\\"epoch\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1207,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__speed__value\\\",\\n                \\\"description\\\": \\\"The vehicle's current speed in Km/h\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"km/h\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1208,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"location__latitude__value\\\",\\n                \\\"description\\\": \\\"The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"deg\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1296,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__2_2_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) for top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1297,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__roof__sunroof_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's sunroof.\\\\n0 - Closed\\\\n1 - Open\\\\n2 - Sunroof is tilted-open\\\\n3 - Sunroof is running\\\\n4 - Sunroof in anti-wobble position\\\\n5 - Sunroof in an intermediate sliding position\\\\n6 - Sunroof in an intermediate tilted position\\\\n7 - Invalid\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1298,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__2_2_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1299,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__2_1_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1300,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__2_1_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1301,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__1_1_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1302,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__1_2_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1303,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__fuel__level\\\",\\n                \\\"description\\\": \\\"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"percentage\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1304,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__1_2_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1305,\\n            \\\"model\\\": \\\"Camry-FA20\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__1_1_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1025,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"metadata__time__epoch\\\",\\n                \\\"description\\\": \\\"The exact time of a given point (UTC) in Epoch format.\\\",\\n                \\\"type\\\": \\\"Long\\\",\\n                \\\"unit_name\\\": \\\"epoch\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1026,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"deprecated_vehicle__provider__oem\\\",\\n                \\\"description\\\": \\\"The name of the Original Equipment Manufacturer\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"string\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1027,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__fuel__level\\\",\\n                \\\"description\\\": \\\"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"percentage\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1028,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__identification__vin\\\",\\n                \\\"description\\\": \\\"The vehicle's identification number\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1029,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__identification__otonomo_id\\\",\\n                \\\"description\\\": \\\"A unique vehicle's identification number created by Otonomo\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1030,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"location__latitude__value\\\",\\n                \\\"description\\\": \\\"The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"deg\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1031,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"location__longitude__value\\\",\\n                \\\"description\\\": \\\"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"deg\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1032,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__odometer__value\\\",\\n                \\\"description\\\": \\\"The accumulated distance traveled by a vehicle in km\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"km\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1033,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"metadata__provider__name\\\",\\n                \\\"description\\\": \\\"The name of the provider\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1437,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__roof__sunroof_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's sunroof.\\\\n0 - Closed\\\\n1 - Open\\\\n2 - Sunroof is tilted-open\\\\n3 - Sunroof is running\\\\n4 - Sunroof in anti-wobble position\\\\n5 - Sunroof in an intermediate sliding position\\\\n6 - Sunroof in an intermediate tilted position\\\\n7 - Invalid\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1438,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__1_2_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1439,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__2_2_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) for top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1440,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__2_1_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1441,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__2_2_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1442,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__speed__value\\\",\\n                \\\"description\\\": \\\"The vehicle's current speed in Km/h\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"km/h\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1443,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__1_2_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1444,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__1_1_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1445,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__2_1_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1446,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__1_1_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1560,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__brake__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh brake event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1561,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__acceleration__value\\\",\\n                \\\"description\\\": \\\"The forward (positive value) -and-backward (negative value) acceleration of a vehicle in g.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"g\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1562,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__acceleration__lateral\\\",\\n                \\\"description\\\": \\\"The right (positive value) -and-left (negative value) acceleration of a vehicle in g.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"g\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1568,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__cornering__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh cornering event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1575,\\n            \\\"model\\\": \\\"Camry-LB10\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__acceleration__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh acceleration event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1091,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__1_1_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1092,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__1_2_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1093,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__speed__value\\\",\\n                \\\"description\\\": \\\"The vehicle's current speed in Km/h\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"km/h\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1094,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__2_1_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1095,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__fuel__level\\\",\\n                \\\"description\\\": \\\"A vehicle's current fuel level expressed in percentages (OBD-II-PID:2F)\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"percentage\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1096,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"metadata__provider__name\\\",\\n                \\\"description\\\": \\\"The name of the provider\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1097,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__1_1_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1098,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__1_2_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1099,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"location__longitude__value\\\",\\n                \\\"description\\\": \\\"The GPS longitudinal location of a given vehicle in decimal degrees (WGS 84).\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"deg\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1100,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__window__2_2_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's (i,j) window.\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) for top left.     \\\\n0 - Intermediate position\\\\n1 - Opened\\\\n2 - Closed\\\\n3 - Airing position\\\\n4 - Intermediate, airing position\\\\n5 - Currently running\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1101,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__odometer__value\\\",\\n                \\\"description\\\": \\\"The accumulated distance traveled by a vehicle in km\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"km\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1102,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"location__latitude__value\\\",\\n                \\\"description\\\": \\\"The GPS latitudinal location of a given vehicle in decimal degrees (WGS 84).\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"deg\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1103,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"deprecated_vehicle__provider__oem\\\",\\n                \\\"description\\\": \\\"The name of the Original Equipment Manufacturer\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"string\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1104,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__identification__otonomo_id\\\",\\n                \\\"description\\\": \\\"A unique vehicle's identification number created by Otonomo\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1105,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__2_1_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1106,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__tire__2_2_pressure\\\",\\n                \\\"description\\\": \\\"The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\\\\r\\\\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"psi\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1107,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__roof__sunroof_status\\\",\\n                \\\"description\\\": \\\"The status of a vehicle's sunroof.\\\\n0 - Closed\\\\n1 - Open\\\\n2 - Sunroof is tilted-open\\\\n3 - Sunroof is running\\\\n4 - Sunroof in anti-wobble position\\\\n5 - Sunroof in an intermediate sliding position\\\\n6 - Sunroof in an intermediate tilted position\\\\n7 - Invalid\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1108,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__identification__vin\\\",\\n                \\\"description\\\": \\\"The vehicle's identification number\\\",\\n                \\\"type\\\": \\\"String\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1109,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"metadata__time__epoch\\\",\\n                \\\"description\\\": \\\"The exact time of a given point (UTC) in Epoch format.\\\",\\n                \\\"type\\\": \\\"Long\\\",\\n                \\\"unit_name\\\": \\\"epoch\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1290,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__acceleration__lateral\\\",\\n                \\\"description\\\": \\\"The right (positive value) -and-left (negative value) acceleration of a vehicle in g.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"g\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1291,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__brake__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh brake event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1292,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"mobility__acceleration__value\\\",\\n                \\\"description\\\": \\\"The forward (positive value) -and-backward (negative value) acceleration of a vehicle in g.\\\",\\n                \\\"type\\\": \\\"Float\\\",\\n                \\\"unit_name\\\": \\\"g\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1293,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__cornering__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh cornering event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1294,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"event__acceleration__harsh\\\",\\n                \\\"description\\\": \\\"indicates whether a harsh acceleration event was triggered 1 - event-triggered 0 - event stopped\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        },\\n        {\\n            \\\"id\\\": 1582,\\n            \\\"model\\\": \\\"Camry-XSE\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n            \\\"year\\\": \\\"2018\\\",\\n            \\\"engine_type\\\": \\\"Gasoline\\\",\\n            \\\"attribute\\\": {\\n                \\\"attribute_name\\\": \\\"vehicle__indication_light__maintenance\\\",\\n                \\\"description\\\": \\\"Indicates if the maintenance light is on or off. on-1;0ff-0\\\",\\n                \\\"type\\\": \\\"Integer\\\",\\n                \\\"unit_name\\\": \\\"\\\"\\n            }\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e2a6982-3e1f-4078-82b8-b5a87666eb08",
+          "name": "Vehicle Status - Bulk Report",
+          "request": {
+            "name": "Vehicle Status - Bulk Report",
+            "description": {
+              "content": "This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "personal",
+                "reports",
+                "vehiclesstatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a37c2a09-8747-48b2-a661-b0dfaf1f4900",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "vehiclesstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"request_id\\\": \\\"119a499\\\",\\n    \\\"request_uuid\\\": \\\"f4750e67-08f1-4e87-bf18-eed6273d9\\\",\\n    \\\"report_status\\\": \\\"Pending\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b29ae6b7-65bf-452a-85f2-24c76dc12022",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "vehiclesstatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ed52798-0c6e-494d-b931-7cb9de00f79e",
+          "name": "Connectivity Check",
+          "request": {
+            "name": "Connectivity Check",
+            "description": {
+              "content": "This call provides the ability to verify a vehicle's connectivity capabilities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "vehicle-connectivity",
+                ":vin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "VIN",
+                  "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eedec3f9-f060-4535-86d8-72b116762ff5",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicle-connectivity",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "VIN",
+                      "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"vin\\\": \\\"0TNM466C4LKPBWRHS\\\",\\n    \\\"make\\\": \\\"otonomo-demo\\\",\\n    \\\"connectivity\\\": \\\"supported\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "161c52be-1efe-4e29-9052-8f53f58a2a12",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "vehicle-connectivity",
+                    ":vin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "VIN",
+                      "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9843cd9-2e55-40ce-a4c2-755edaaa3202",
+          "name": "Fleet Points Data",
+          "request": {
+            "name": "Fleet Points Data",
+            "description": {
+              "content": "This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). premium feature - to unlock please contact support@otonomo.io",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "personal",
+                "reports",
+                "points"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_datetime\": \"<string>\",\n  \"end_datetime\": \"<string>\",\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country_codes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"polygon\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cars_limit\": \"<integer>\",\n  \"records_limit\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1eef555-275d-412b-aef6-51870215a0be",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "`application/json`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\",\n    \"VIN3\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"request_id\\\": \\\"119a499\\\",\\n    \\\"request_uuid\\\": \\\"f4750e67-08f1-4e87-bf18-eed6273d9\\\",\\n    \\\"report_status\\\": \\\"Pending\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "129f05d3-8ec1-463d-a719-315acd638033",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "`application/json`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\",\n    \"VIN3\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "caf78b90-afdb-428d-a04a-09ebce64bbfb",
+          "name": "Fleet Trips Points",
+          "request": {
+            "name": "Fleet Trips Points",
+            "description": {
+              "content": "This call provides Fleet Trips Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). The report includes any trip points that have a start time and end time within the configured period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "personal",
+                "reports",
+                "trips_points"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_datetime\": \"<string>\",\n  \"end_datetime\": \"<string>\",\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country_codes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"polygon\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cars_limit\": \"<integer>\",\n  \"records_limit\": \"<integer>\",\n  \"trip_ids\": \"<string>\",\n  \"start_at\": true,\n  \"pass_through\": true,\n  \"end_at\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8ffbc180-4118-4785-806a-197ea3827854",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "trips_points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "`application/json`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\",\n    \"VIN3\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"request_id\\\": 1027303,\\n    \\\"request_uuid\\\": \\\"f4750e67-08f1-4e87-bf18-eed6254s6\\\",\\n    \\\"report_status\\\": \\\"Pending\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11c87083-ede9-4c30-81df-0db4918e8f56",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "trips_points"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "`application/json`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\",\n    \"VIN3\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e841318-a625-4762-a6eb-ecd6c0e8d949",
+          "name": "Get Report Status",
+          "request": {
+            "name": "Get Report Status",
+            "description": {
+              "content": "You can obtain the completion status of a previous request. To specify which request you want to retrieve, use the request ID returned by the corresponding report endpoint. Status:Ongoing: The request is still in the process of being rendered. Completed: The request is ready. Expired: The report was generated over 30 days ago and is now expired. Once the status is “completed”, a link to the generated CSV is provided in the response section.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "personal",
+                "reports",
+                "requests",
+                ":Request_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "Request_id",
+                  "description": "(Required) Extracted from the response of historical data request."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4da35115-9fe5-4611-a5c4-00cf366e8072",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "requests",
+                    ":Request_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "Request_id",
+                      "description": "(Required) Extracted from the response of historical data request."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer Ersdf53hty46dfg"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"id\\\": \\\"100000\\\",\\n    \\\"uuid\\\": \\\"12dw2f4c-60d2-48ab-87ae-298365501cc8\\\",\\n    \\\"report\\\": \\\"BulkVehicleStatus\\\",\\n    \\\"status\\\": \\\"Completed\\\",\\n    \\\"result_url_list\\\": {\\n        \\\"part-00000-e6332154-f50b-4560-b80d-ef1dc7f69285-c000.csv\\\": {\\n            \\\"url\\\": \\\"https://prod-otonomo-reports.s3-accelerate.amazonaws.com/reports/1006128/part-00000-e6332154-f50b-4560-b80d-ef1dc7f69285-c000.csv?AWSAccessKeyId=AKIAJNZTRffgPJLBQR6Q&Signature=xnhGaa2VJ%2FYdON3L2csv5arSsMM%3D&Expires=1603522322\\\",\\n            \\\"size\\\": \\\"148\\\"\\n        }\\n    }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22cd71fb-6a25-4f95-a7a2-3b4e16d89c91",
+          "name": "Fleet Trips Data",
+          "request": {
+            "name": "Fleet Trips Data",
+            "description": {
+              "content": "This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). This is a premium feature - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within the configured period.The report includes any trip that has started at, ended at or passed through the selected geography  (Country, State, City, or Polygon).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "personal",
+                "reports",
+                "trips"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"start_datetime\": \"<string>\",\n  \"end_datetime\": \"<string>\",\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country_codes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"polygon\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cars_limit\": \"<integer>\",\n  \"records_limit\": \"<integer>\",\n  \"start_at\": true,\n  \"pass_through\": true,\n  \"end_at\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb826436-79d4-46dd-abe3-36718cdedad6",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "trips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "`application/json`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_datetime\": \"<string>\",\n  \"end_datetime\": \"<string>\",\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country_codes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"polygon\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cars_limit\": \"<integer>\",\n  \"records_limit\": \"<integer>\",\n  \"start_at\": true,\n  \"pass_through\": true,\n  \"end_at\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"request_id\\\": \\\"119a499\\\",\\n    \\\"request_uuid\\\": \\\"f4750e67-08f1-4e87-bf18-eed6273d9\\\",\\n    \\\"report_status\\\": \\\"Pending\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "523035d4-87ff-44d7-9bf6-a1675d3e4ece",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "personal",
+                    "reports",
+                    "trips"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "`application/json`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start_datetime\": \"<string>\",\n  \"end_datetime\": \"<string>\",\n  \"vins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"country_codes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"states\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cities\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"polygon\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"cars_limit\": \"<integer>\",\n  \"records_limit\": \"<integer>\",\n  \"start_at\": true,\n  \"pass_through\": true,\n  \"end_at\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b6ab9e1-bb56-4bd6-a550-ada2480751fd",
+          "name": "Fleet (Workspace) Access Token - EU",
+          "request": {
+            "name": "Fleet (Workspace) Access Token - EU",
+            "description": {
+              "content": "This token is used to access information pertaining to a personal  fleet data Workspace in  Europe.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "oauth",
+                "token",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant_type\": \"<string>\",\n  \"service\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19bc08cb-5b44-47eb-a225-0777e5e6276b",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "oauth",
+                    "token",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) `application/x-www-form-urlencoded`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant_type\": \"<string>\",\n  \"service\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"access_token\\\": \\\"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik5UTkZORGxHT0VJeE5qZzNNVUkxUmpJMVJUZEJPRE15UlVVM05VTTJOa1ZETjBNNU1URTVOUSJ9.eyJodHRwczovL290b25vbW8uaW8vbmFtZSI6Im90b0FwcHMiLCJodHRwczovL290b25vbW8uaW8vdXNlcl90eXBlIjoidG9ub21vLmlvL3ZlbmRvciI6Im90b0FwcHMiLCJpc3MiOiJodHRwczovL2F1dGgub3Rvbm9tb\\\",\\n  \\\"expires_in\\\": 86400,\\n  \\\"token_type\\\": \\\"Bearer\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "040490d4-b60f-4aa7-9607-3e7499b214af",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "oauth",
+                    "token",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) `application/x-www-form-urlencoded`",
+                    "key": "content-type",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"grant_type\": \"<string>\",\n  \"service\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d265ed4b-5554-4cdb-91f0-4455e66ff3b8",
+          "name": "Vehicle Management - Get All VINs",
+          "request": {
+            "name": "Vehicle Management - Get All VINs",
+            "description": {
+              "content": "This call provides the latest status of all existing VINs of a specific Workspace in the Vehicle Management. [Click here for the statuses list](https://docs.otonomo.io/docs/vehicle-management-for-fleets)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "vehicle-management",
+                "vehicles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f017c7b6-0fcd-40c7-9c64-b67d90527419",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer Ersdf53hty46dfg"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"vehicles\\\": [\\n         {\\n          \\\"vin\\\": \\\"VIN1\\\",\\n          \\\"make\\\": \\\"Mercedes\\\",\\n          \\\"status\\\": \\\"enabled\\\",\\n          \\\"last_update\\\": \\\"2020-05-07 10:12\\\"\\n         },\\n         {\\n            \\\"vin\\\": \\\"VIN2\\\",\\n            \\\"make\\\": \\\"Toyota\\\",\\n          \\\"status\\\": \\\"pending\\\",\\n          \\\"last_update\\\": \\\"2020-08-01 09:42\\\"\\n         }\\n      ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad695989-b552-4b52-9a56-98459d2f64f0",
+          "name": "Vehicle Management - Upload new VINs",
+          "request": {
+            "name": "Vehicle Management - Upload new VINs",
+            "description": {
+              "content": "With this call you can upload new VINs to a specific fleet. you can add the following static data to each vehicle -  one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "vehicle-management",
+                "vehicles",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RAW_BODY\": \"<json>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd685709-ba30-4d9b-961e-8f58db4dc7c5",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    {\n      \"vin\": \"VIN1\",\n      \"odometer\": \"1234\"\n    },\n    {\n      \"vin\": \"VIN2\",\n      \"odometer\": \"5678\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"summary\\\": {\\n        \\\"success\\\": \\\"2\\\",\\n        \\\"errors\\\": \\\"0\\\"\\n    },\\n    \\\"data\\\": [\\n        {\\n            \\\"vin\\\": \\\"VIN1\\\",\\n            \\\"uploadStatus\\\": \\\"success\\\"\\n        },\\n        {\\n            \\\"vin\\\": \\\"VIN2\\\",\\n            \\\"uploadStatus\\\":\\\"success\\\"\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0870381d-97da-4228-b758-1efb26490fdc",
+              "name": "201",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    {\n      \"vin\": \"VIN1\",\n      \"odometer\": \"1234\"\n    },\n    {\n      \"vin\": \"VIN2\",\n      \"odometer\": \"5678\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"summary\\\": {\\n        \\\"success\\\": \\\"0\\\",\\n        \\\"errors\\\": \\\"1\\\"\\n    },\\n    \\\"data\\\": [\\n        {\\n            \\\"vin\\\": \\\"VIN1\\\",\\n            \\\"uploadStatus\\\": \\\"error\\\",\\n            \\\"error\\\": \\\"Already exist\\\"\\n        }\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "978ad3de-c038-48ff-aa78-b6f1ad9e0d5b",
+          "name": "Vehicle Management - Delete VINs",
+          "request": {
+            "name": "Vehicle Management - Delete VINs",
+            "description": {
+              "content": "With this call you can delete existing VINs from a fleet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "vehicle-management",
+                "vehicles",
+                "remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VIN1\": \"<string>\",\n  \"VIN2\": \"<string>\",\n  \"VIN3\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90cd78bb-e4ba-411c-87e7-2137f8eb9735",
+              "name": "204",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9211f0ca-f6bb-4bc7-bab2-ec81248a5ca2",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"the following vin where not found under you workspace\\\",\\n    \\\"vins\\\": [\\n        \\\"VIN1\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f093669a-a18a-40f5-a355-be31dcd420b5",
+          "name": "Vehicle Management - Request VIN Enablement",
+          "request": {
+            "name": "Vehicle Management - Request VIN Enablement",
+            "description": {
+              "content": "With this call you can request enablement for disabled VINs in a fleet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "vehicle-management",
+                "vehicles",
+                "enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VIN1\": \"<string>\",\n  \"VIN2\": \"<string>\",\n  \"VIN3\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd1c03f1-1793-42f3-b05e-0b411efe08d3",
+              "name": "202",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6c1110ce-01bd-4f56-9d1b-47f1956af259",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"the following vin where not found under you workspace\\\",\\n    \\\"vins\\\": [\\n        \\\"VIN1\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e398ccc-9d7c-44d7-bdd3-36ea1bb109fb",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"pending or consented vehicles cannot be consented\\\",\\n    \\\"vins\\\": [\\n        \\\"VIN1\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd31baf0-c459-481e-b452-1630d46f4bfc",
+          "name": "Vehicle Management - Disable VINs",
+          "request": {
+            "name": "Vehicle Management - Disable VINs",
+            "description": {
+              "content": "With this call you can disable VINs in a fleet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "vehicle-management",
+                "vehicles",
+                "disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"VIN1\": \"<string>\",\n  \"VIN2\": \"<string>\",\n  \"VIN3\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d94857c8-85b9-4022-b071-40e69e4dd1ef",
+              "name": "202",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a8afb42-83ea-45a1-9dba-a44fc365a85c",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicle-management",
+                    "vehicles",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vins\": [\n    \"VIN1\",\n    \"VIN2\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n    \\\"message\\\": \\\"the following vin where not found under you workspace\\\",\\n    \\\"vins\\\": [\\n        \\\"VIN1\\\"\\n    ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40e6c70c-6951-4543-9dc0-b6195b4f6d29",
+          "name": "Vehicle ownership verification",
+          "request": {
+            "name": "Vehicle ownership verification",
+            "description": {
+              "content": "Verify your ownership by uploading a vehicle ownership document.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "file-verification",
+                "<vin>",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "vin",
+                  "description": "(Required) the vehicles identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"File\": \"<binary>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bd1aa8ea-0356-4e06-8ac2-bb9523a20b1e",
+              "name": "204",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "file-verification",
+                    "<vin>",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) the vehicles identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Workspace access token preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"File\": \"<binary>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a25090c0-b169-4890-843b-83c5180b27ec",
+              "name": "400",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "file-verification",
+                    "<vin>",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "vin",
+                      "description": "(Required) the vehicles identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Workspace access token preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"File\": \"<binary>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2aac8a0a-dc69-4679-a06d-3a86b593449d",
+          "name": "Vehicle Status v1",
+          "request": {
+            "name": "Vehicle Status v1",
+            "description": {
+              "content": "This call provides the latest status of a single vehicle in synchronical mode.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "vehicles",
+                ":vin",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "VIN",
+                  "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2aed3e4-bf2a-487d-bac1-1686f3b4634d",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "vehicles",
+                    ":vin",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "VIN",
+                      "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  “data”: {\\n    “vehicle__description__otonomo_id”: “8ed1f064107153e0b72d5f0c0307b298”,\\n    “metadata__time__epoch”: 1595757406388,\\n    “location__latitude__value”: 32.08855,\\n    “location__longitude__value”: 34.78247,\\n    “vehicle__battery__percentage”: 12,\\n    “vehicle__engine__temperature”: 92.3,\\n    “mobility__heading__degree”: 8.36,\\n    “mobility__speed__value”: 0,\\n    “vehicle__fuel__percentage”: 20.2,\\n    “vehicle__odometer__value”: 73875,\\n    “vehicle__engine__rpm”: 900,\\n    “mobility__fuel__avg_consumption”: 8,\\n    “vehicle__engine__oil_percentage”: 100,\\n    “vehicle__description__vin”: “0TNM6MEM2LVGTTJE9”,\\n    “manufacturer__fuel__type”: “Electric”,\\n    “vehicle__tire__r1_pressure”: 32,\\n    “vehicle__tire__l1_pressure”: 32,\\n    “vehicle__tire__r2_pressure”: 32,\\n    “vehicle__tire__l2_pressure”: 32,\\n    “vehicle__steering_wheel__degree”: 0,\\n    “vehicle__steering_wheel__angular_velocity”: 0,\\n    “vehicle__hv_battery__level”: 20.2,\\n    “mobility__acceleration__value”: 0.16995270216666\\n  }\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b56f98a5-dd7c-41cb-a29c-08d63139c725",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "vehicles",
+                    ":vin",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "VIN",
+                      "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "085d3b5a-07d5-4af4-9648-00f9f5db52d0",
+          "name": "Vehicle Status v2 (Time Per Attribute)",
+          "request": {
+            "name": "Vehicle Status v2 (Time Per Attribute)",
+            "description": {
+              "content": "This call provides the latest status of a single vehicle in synchronical mode.When using **Vehicle Status v2 (Time Per Attribute)** the output will contain the exact timestamp as it was received by Otonomo for each attribute and not aggregated as in Vehicle Status v1.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v2",
+                "vehicles",
+                ":vin",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "VIN",
+                  "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c4f090a-0c6d-4399-b455-af273c61ea63",
+              "name": "200",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicles",
+                    ":vin",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "VIN",
+                      "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n  \\\"data\\\": [\\n    {\\n      \\\"name\\\": \\\"vehicle__identification__vin\\\",\\n      \\\"value\\\": \\\"1GXXXXXXXXXXXXXXXX\\\",\\n      \\\"time\\\": null\\n    },\\n    {\\n      \\\"name\\\": \\\"location__latitude__value\\\",\\n      \\\"value\\\": 46.224865,\\n      \\\"time\\\": 1661526202764\\n    },\\n    {\\n      \\\"name\\\": \\\"location__longitude__value\\\",\\n      \\\"value\\\": 7.316541,\\n      \\\"time\\\": 1661526202764\\n    },\\n    {\\n      \\\"name\\\": \\\"mobility__heading__angle\\\",\\n      \\\"value\\\": 162,\\n      \\\"time\\\": 1661526202764\\n    },\\n    {\\n      \\\"name\\\": \\\"mobility__speed__value\\\",\\n      \\\"value\\\": 77.1700644,\\n      \\\"time\\\": 1661437329858\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__fuel__level\\\",\\n      \\\"value\\\": 70.10892,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"mobility__odometer__value\\\",\\n      \\\"value\\\": 7157,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__identification__vin\\\",\\n      \\\"value\\\": \\\"<vin>\\\",\\n      \\\"time\\\": null\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__tire__1_2_pressure\\\",\\n      \\\"value\\\": 37.129728,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__tire__1_1_pressure\\\",\\n      \\\"value\\\": 38.290032,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__tire__2_2_pressure\\\",\\n      \\\"value\\\": 39.595374,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__tire__2_1_pressure\\\",\\n      \\\"value\\\": 37.564842,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__battery__voltage\\\",\\n      \\\"value\\\": 11.9375,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"location__altitude__value\\\",\\n      \\\"value\\\": 140.208,\\n      \\\"time\\\": 1661526202764\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__ignition__status\\\",\\n      \\\"value\\\": 0,\\n      \\\"time\\\": 1661614552000\\n    },\\n    {\\n      \\\"name\\\": \\\"vehicle__abs__status\\\",\\n      \\\"value\\\": 1,\\n      \\\"time\\\": 1661525159645\\n    }\\n  ]\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea63f6ef-1513-4e26-8d3b-93227bc5854a",
+              "name": "403",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "vehicles",
+                    ":vin",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "VIN",
+                      "description": "(Required) VIN of the vehicle quoted, \"VIN\""
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) [Workspace access token](https://docs.otonomo.io/reference/workspace-access-token-eu) preceded by the token type string for OAuth2, \"Bearer\".",
+                    "key": "authorization",
+                    "value": "Bearer bNiIsInR5cCXr_si0C"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"{\\n\\t\\\"detail\\\": \\\"You do not have permission to perform this action.\\\"\\n}\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.otonomo.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.otonomo.io/v1/oauth/token/"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f681a0b1-04ac-4394-8e08-cf96b34b2ba6",
+    "name": "Otonomo Fleet EU API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Connected-vehicle data API for fleets. Reconstructed by API Evangelist from the per-operation OpenAPI 3.1 definitions embedded in the live Otonomo API reference at docs.otonomo.io (ReadMe). US region host api.otonomo.io; EU region host api.eu.otonomo.io.",
+      "type": "text/plain"
+    }
+  }
+}

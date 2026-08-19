@@ -1,0 +1,431 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Otonomo Fleet EU API",
+    "version": "1.1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.otonomo.io/v1/oauth/token/",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EU",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Attribute Explorer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otonomo.io/vehicle_details_attributes",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "model",
+                "value": "",
+                "type": "query",
+                "description": "The result can be filtered by the 'model' query param, to include only the specified model"
+              },
+              {
+                "name": "make",
+                "value": "",
+                "type": "query",
+                "description": "The result can be filtered by the 'make' query param, to include only the specified make"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "The result can be filtered by the 'year' query param, to include only the specified year"
+              },
+              {
+                "name": "engine_type",
+                "value": "",
+                "type": "query",
+                "description": "The result can be filtered by the 'engine_type' query param, to include only the specified engine_type"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "A function of pagination is implemented, the specified page number (as a query param) will be returned with its content."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "A function of page size is implemented, the specified size is related to the number of Json objects that are being returned (min value=1 | max value=1197 | is not specified=100)."
+              }
+            ]
+          },
+          "docs": "This call provides the ability of attribute exploration within the Otonomo platform. \nThe response includes the relevant attributes according to the passed query parameters."
+        },
+        {
+          "info": {
+            "name": "Vehicle Status - Bulk Report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v1/personal/reports/vehiclesstatus",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu)."
+        },
+        {
+          "info": {
+            "name": "Connectivity Check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otonomo.io/vehicle-connectivity/:vin",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "VIN",
+                "value": "",
+                "type": "path",
+                "description": "VIN of the vehicle quoted, \"VIN\""
+              }
+            ]
+          },
+          "docs": "This call provides the ability to verify a vehicle's connectivity capabilities."
+        },
+        {
+          "info": {
+            "name": "Fleet Points Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v1/personal/reports/points",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              },
+              {
+                "name": "content-type",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). premium feature - to unlock please contact support@otonomo.io"
+        },
+        {
+          "info": {
+            "name": "Fleet Trips Points",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v1/personal/reports/trips_points",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              },
+              {
+                "name": "content-type",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This call provides Fleet Trips Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). The report includes any trip points that have a start time and end time within the configured period."
+        },
+        {
+          "info": {
+            "name": "Get Report Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otonomo.io/v1/personal/reports/requests/:Request_id",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "Request_id",
+                "value": "",
+                "type": "path",
+                "description": "Extracted from the response of historical data request."
+              }
+            ]
+          },
+          "docs": "You can obtain the completion status of a previous request. To specify which request you want to retrieve, use the request ID returned by the corresponding report endpoint. Status:Ongoing: The request is still in the process of being rendered. Completed: The request is ready. Expired: The report was generated over 30 days ago and is now expired. Once the status is “completed”, a link to the generated CSV is provided in the response section."
+        },
+        {
+          "info": {
+            "name": "Fleet Trips Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v1/personal/reports/trips",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              },
+              {
+                "name": "content-type",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). This is a premium feature - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within the configured period.The report includes any trip that has started at, ended at or passed through the selected geography  (Country, State, City, or Polygon)."
+        },
+        {
+          "info": {
+            "name": "Fleet (Workspace) Access Token - EU",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v1/oauth/token/",
+            "headers": [
+              {
+                "name": "content-type",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This token is used to access information pertaining to a personal  fleet data Workspace in  Europe."
+        },
+        {
+          "info": {
+            "name": "Vehicle Management - Get All VINs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otonomo.io/v2/vehicle-management/vehicles/",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "This call provides the latest status of all existing VINs of a specific Workspace in the Vehicle Management. [Click here for the statuses list](https://docs.otonomo.io/docs/vehicle-management-for-fleets)"
+        },
+        {
+          "info": {
+            "name": "Vehicle Management - Upload new VINs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v2/vehicle-management/vehicles/",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "With this call you can upload new VINs to a specific fleet. you can add the following static data to each vehicle -  one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity"
+        },
+        {
+          "info": {
+            "name": "Vehicle Management - Delete VINs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v2/vehicle-management/vehicles/remove",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "With this call you can delete existing VINs from a fleet."
+        },
+        {
+          "info": {
+            "name": "Vehicle Management - Request VIN Enablement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v2/vehicle-management/vehicles/enable",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "With this call you can request enablement for disabled VINs in a fleet."
+        },
+        {
+          "info": {
+            "name": "Vehicle Management - Disable VINs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v2/vehicle-management/vehicles/disable",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "With this call you can disable VINs in a fleet."
+        },
+        {
+          "info": {
+            "name": "Vehicle ownership verification",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.otonomo.io/v1/file-verification/<vin>/",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "vin",
+                "value": "",
+                "type": "path",
+                "description": "the vehicles identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Verify your ownership by uploading a vehicle ownership document."
+        },
+        {
+          "info": {
+            "name": "Vehicle Status v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otonomo.io/v1/vehicles/:vin/status",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "VIN",
+                "value": "",
+                "type": "path",
+                "description": "VIN of the vehicle quoted, \"VIN\""
+              }
+            ]
+          },
+          "docs": "This call provides the latest status of a single vehicle in synchronical mode."
+        },
+        {
+          "info": {
+            "name": "Vehicle Status v2 (Time Per Attribute)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.otonomo.io/v2/vehicles/:vin/status",
+            "headers": [
+              {
+                "name": "authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "VIN",
+                "value": "",
+                "type": "path",
+                "description": "VIN of the vehicle quoted, \"VIN\""
+              }
+            ]
+          },
+          "docs": "This call provides the latest status of a single vehicle in synchronical mode.When using **Vehicle Status v2 (Time Per Attribute)** the output will contain the exact timestamp as it was received by Otonomo for each attribute and not aggregated as in Vehicle Status v1."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

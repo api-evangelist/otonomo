@@ -61,3 +61,9 @@ tools:
 - name: vehicle_status_time_per_attribute
   description: Vehicle Status v2 (Time Per Attribute)
   source_operation: openapi/otonomo-fleet-openapi.yml#vehicle-status-time-per-attribute
+deployment:
+  mode: none
+  verified: derived
+  tools: 18
+  checked: '2026-08-12'
+  source: catalog MCP census
