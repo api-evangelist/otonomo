@@ -1,0 +1,27 @@
+slug: otonomo
+provider: Otonomo
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Automotive & Mobility
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: EU
+  spec_file: otonomo-eu-api-openapi.yml
+  capability_id: BC-3460.40
+  capability_id_l1: BC-3460
+  capability_name: Vehicle Data Platform Operations
+  confidence: 0.85
+  evidence: '''Vehicle Management - Upload new VINs'', ''Vehicle Status - Bulk Report'', ''Fleet Points
+    Data'', ''Vehicle Management - Request VIN Enablement'''
+  reason: Operations onboard VINs, capture consent/enablement, and deliver vehicle status, trips and points
+    data from connected cars — this is operation of a vehicle data platform (ingestion, sharing, consent)
+    rather than any generic IT capability. The 'EU' tag is only a region split of the same fleet data
+    surface.

@@ -134,6 +134,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/otonomo-capability-edges.yml
+  name: Otonomo Business Capability Map
 - type: AgentSkill
   url: skills/otonomo-check-vehicle-connectivity.md
 - type: MCPServer
