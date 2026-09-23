@@ -1,8 +1,7 @@
 {
   "provider": "otonomo",
   "sources": [
-    "otonomo-eu-api-openapi.yml",
-    "otonomo-us-api-openapi.yml"
+    "_original/otonomo-fleet-openapi.yml"
   ],
   "outputs": [
     "otonomo-eu-api-openapi.yml",
@@ -11,6 +10,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "otonomo-fleet-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "otonomo-fleet-openapi.yml: declared missing tag: EU",
+    "otonomo-fleet-openapi.yml: declared missing tag: US",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "otonomo-eu-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "otonomo-us-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

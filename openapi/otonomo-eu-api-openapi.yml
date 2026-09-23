@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Otonomo Fleet EU API
   version: '1.1'
@@ -18,7 +18,9 @@ paths:
   /vehicle_details_attributes:
     get:
       summary: Attribute Explorer
-      description: "This call provides the ability of attribute exploration within the Otonomo platform. \nThe response includes the relevant attributes according to the passed query parameters."
+      description: 'This call provides the ability of attribute exploration within the Otonomo platform.
+
+        The response includes the relevant attributes according to the passed query parameters.'
       operationId: attribute-explorer-1
       parameters:
       - name: authorization
@@ -210,7 +212,9 @@ paths:
                                 example: vehicle__tire__1_1_pressure
                               description:
                                 type: string
-                                example: "The exact amount of tire pressure the vehicle's (i,j) wheel is experiencing.\r\nThe (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left."
+                                example: 'The exact amount of tire pressure the vehicle''s (i,j) wheel is experiencing.
+
+                                  The (i_j) notation refers to the i-th row and j-th column starting from (1,1) top left.'
                               type:
                                 type: string
                                 example: Float
@@ -238,7 +242,7 @@ paths:
   /v1/personal/reports/vehiclesstatus:
     post:
       summary: Vehicle Status - Bulk Report
-      description: This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu).
+      description: This call provides the latest status for multiple vehicles in an asyncronical mode. It creates a report which you can follow on Get Report Status.
       operationId: bulk-vehicles-status-for-fleets-eu
       parameters:
       - name: authorization
@@ -353,7 +357,7 @@ paths:
   /v1/personal/reports/points:
     post:
       summary: Fleet Points Data
-      description: This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). premium feature - to unlock please contact support@otonomo.io
+      description: This call provides Fleet Points data for vehicles in an asynchronous mode. It creates a report which you can follow on Get Report Status. premium feature - to unlock please contact support@otonomo.io
       operationId: fleet-points-historical-data
       parameters:
       - name: authorization
@@ -462,7 +466,7 @@ paths:
   /v1/personal/reports/trips_points:
     post:
       summary: Fleet Trips Points
-      description: This call provides Fleet Trips Points data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). The report includes any trip points that have a start time and end time within the configured period.
+      description: This call provides Fleet Trips Points data for vehicles in an asynchronous mode. It creates a report which you can follow on Get Report Status. The report includes any trip points that have a start time and end time within the configured period.
       operationId: fleet-trips-points
       parameters:
       - name: authorization
@@ -752,7 +756,7 @@ paths:
   /v1/personal/reports/trips:
     post:
       summary: Fleet Trips Data
-      description: This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you can follow on [Get Report Status](https://docs.otonomo.io/reference/get-report-status-eu). This is a premium feature - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within the configured period.The report includes any trip that has started at, ended at or passed through the selected geography  (Country, State, City, or Polygon).
+      description: This call provides Fleet Trips data for vehicles in an asynchronous mode. It creates a report which you can follow on Get Report Status. This is a premium feature - to unlock please contact support@otonomo.ioThe report includes any trip that has a start time and end time within the configured period.The report includes any trip that has started at, ended at or passed through the selected geography (Country, State, City, or Polygon).
       operationId: personal-trips-data-historical
       parameters:
       - name: authorization
@@ -866,7 +870,7 @@ paths:
   /v1/oauth/token/:
     post:
       summary: Fleet (Workspace) Access Token - EU
-      description: This token is used to access information pertaining to a personal  fleet data Workspace in  Europe.
+      description: This token is used to access information pertaining to a personal fleet data Workspace in Europe.
       operationId: workspace-access-token-eu
       parameters:
       - name: content-type
@@ -936,7 +940,7 @@ paths:
   /v2/vehicle-management/vehicles/:
     get:
       summary: Vehicle Management - Get All VINs
-      description: This call provides the latest status of all existing VINs of a specific Workspace in the Vehicle Management. [Click here for the statuses list](https://docs.otonomo.io/docs/vehicle-management-for-fleets)
+      description: This call provides the latest status of all existing VINs of a specific Workspace in the Vehicle Management. Click here for the statuses list
       operationId: vehicle-management-get-all-vins
       parameters:
       - name: authorization
@@ -979,7 +983,7 @@ paths:
       - EU
     post:
       summary: Vehicle Management - Upload new VINs
-      description: With this call you can upload new VINs to a specific fleet. you can add the following static data to each vehicle -  one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity
+      description: With this call you can upload new VINs to a specific fleet. you can add the following static data to each vehicle - one or more labels, name, license_plate, color, model ,year, fuel_type, fuel_capacity, battery_capacity
       operationId: vehicle-management-upload-new-vin
       parameters:
       - name: authorization
