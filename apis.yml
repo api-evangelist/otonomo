@@ -134,6 +134,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: RateLimits
+  url: rate-limits/otonomo-rate-limits.yml
 - type: CapabilityMap
   url: capabilities/otonomo-capability-edges.yml
   name: Otonomo Business Capability Map
