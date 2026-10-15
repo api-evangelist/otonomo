@@ -1,12 +1,21 @@
-generated: '2026-07-20'
-method: derived
-source: openapi/otonomo-fleet-openapi.yml
+generated: '2026-10-14'
+method: none
+source: openapi/otonomo-eu-api-openapi.yml, openapi/otonomo-us-api-openapi.yml
 schemes:
 - name: oauth2
-  source: openapi/otonomo-fleet-openapi.yml
+  source: openapi/otonomo-eu-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.otonomo.io/v1/oauth/token/
+  description: 'OAuth2 client-credentials. Obtain a Bearer token from POST /v1/oauth/token/
+    then send it as Authorization: Bearer <token>.'
+- name: oauth2
+  source: openapi/otonomo-us-api-openapi.yml
   flows:
   - flow: clientCredentials
     tokenUrl: https://api.otonomo.io/v1/oauth/token/
   description: 'OAuth2 client-credentials. Obtain a Bearer token from POST /v1/oauth/token/
     then send it as Authorization: Bearer <token>.'
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
