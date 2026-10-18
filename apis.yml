@@ -54,6 +54,16 @@ tags:
 - Mobility
 - IoT
 - Location
+tags_raw:
+- Company
+- Connected Vehicles
+- Automotive
+- Fleet Management
+- Telematics
+- Vehicle Data
+- Mobility
+- IoT
+- Location
 - Connected Car
 apis:
 - aid: otonomo:otonomo-eu-api
